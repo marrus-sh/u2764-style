@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Fringe ( white )</title>
+<meta charset="UTF-8" />
+
+<style>
+/* Basic Styling */
+iframe {
+	Width:100%;
+	Height: 24.6EM;
+}
+p {
+	Margin: 0;
+	Text-Align: Justify;
+}
+p+p { Text-Indent: 2EM }
+p+p>* { Text-Indent: 0 }
+/* > Links */
+*:Link { Color: LightSkyBlue }
+*:Visited { Color: Lavender }
+*:Link:Active,
+*:Visited:Active { Color: MistyRose }
+/* > Markèd Importance */
+strong.MARK{
+	Border: Thin OrangeRed Solid;
+	Color: Azure;
+	Background: Firebrick;
+	Font-Weight: Inherit;
+	Text-Shadow: 1PX 1PX DarkRed;
+}
+strong.MARK *:Link,
+strong.MARK *:Visited { Color: Inherit }
+/* > Parentheticals */
+span.PARENTHETICAL {
+	Color: MistyRose;
+	Background: MidnightBlue;
+}
+/* > Selections */
+*::SELECTION{
+	Color: Black;
+	Background: White;
+	Text-Shadow: None;
+}
+strong.MARK::SELECTION,
+strong.MARK *::SELECTION { Color: Red }
+/* > "So-Called" Text */
+i.SO-CALLED { Font-Style: Inherit }
+i.SO-CALLED::BEFORE { Content: Open-Quote }
+i.SO-CALLED::AFTER { Content: Close-Quote }
+
+/* Blockquotes */
+blockquote {
+	Margin: 1EM 0 1EM -3EM;
+	Border: Thin BlueViolet Solid;
+	Padding: 1EM 2EM 1EM 5EM;
+	Color: Lavender;
+	Background: Indigo;
+}
+blockquote mark {
+	Border: Thin SlateBlue Solid;
+	Color: AliceBlue;
+	Background: DarkSlateBlue;
+	Font-Weight: Inherit;
+}
+blockquote p+p {
+	Margin-Top: 1EM;
+	Text-Indent: 0
+}
+/* > Blockquote Quotes */
+blockquote { Position: Relative }
+blockquote::AFTER,
+blockquote::BEFORE {
+	Position: Absolute;
+	Width: 1.6EM;
+	Font-Size: 1.25EM;
+	Font-Weight: Bold;
+	Text-Align: Center;
+}
+blockquote::AFTER {
+	Bottom: .8EM;
+	Right: 0;
+	Content: Close-Quote;
+}
+blockquote::BEFORE {
+	Top: .8EM;
+	Left: 2.4EM;
+	Content: Open-Quote;
+}
+
+/* Case Options */
+span.OPTION {
+	Color: Gainsboro;
+	Text-Shadow: 1PX 0 Black;
+}
+span.OPTION>span.CASE:Nth-Child(n+1) { Color: MistyRose }
+span.OPTION>span.CASE:Nth-Child(n+2) { Color: LightSteelBlue }
+span.OPTION>span.CASE:Nth-Child(n+3) { Color: PaleGreen }
+span.OPTION>span.CASE:Nth-Child(n+4) { Color: Wheat }
+span.OPTION>span.CASE:Nth-Child(n+5) { Color: LightPink }
+span.OPTION>span.CASE:Nth-Child(n+6) { Color: PaleTurquoise }
+span.OPTION>span.CASE:Nth-Child(n+7) { Color: Cornsilk }
+
+/* Figures */
+figcaption {
+	Margin: 0 -1EM -.5EM ;
+	Border-Style: None Dotted Dotted ;
+	Border-Width: 0 Thin Thin ;
+	Padding: 0 4EM .5EM;
+}
+figcaption>p:First-Of-Type { Margin-Top: .5EM }
+figcaption>p::BEFORE,
+figcaption>*.PARAGRAPH::BEFORE { Left:-3EM }
+figure {
+	Margin: 1EM -2EM;
+	Text-Align: Center;
+}
+figure>img{
+	Display:Block;
+	Margin: Auto;
+	Max-Width: 100%;
+}
+
+/* Headers/Footers */
+footer {
+	Margin: 1.23EM 0 0;
+	Border-Style: Solid None None;
+	Border-Width: Thin 0 0;
+	Text-Align: Right
+}
+footer,
+header {
+	Padding: .369EM 0;
+	Font-Size: Small;
+}
+footer>p,
+header>p {
+	Margin: .369EM 0;
+	Text-Align: Inherit;
+}
+header {
+	Margin: 0 0 1.23EM;
+	Border-Style: None None Solid;
+	Border-Width: 0 0 Thin;
+	Text-Align: Left;
+}
+
+/* Headings */
+h1 {
+	Margin: 0;
+	Font-Size: X-Large;
+	Font-Weight: Bold;
+}
+h2 {
+	Margin :0 0 .5EM;
+	Font-Size: Large;
+	Font-Weight: Bold;
+}
+h2::BEFORE {
+	Display: Block;
+	Margin: 2EM 0;
+	Font-Size: Medium;
+	Font-Weight: Normal;
+	Opacity: .65;
+	Text-Align: Center;
+	Content: "☙ ⁂ ❧";
+}
+small {
+	Display: Block;
+	Font-Size: Large;
+	Font-Weight: Normal;
+}
+small::BEFORE { Content: "☞ " }
+small>strong {
+	Margin: -2PX;
+	Border: 2PX White Solid;
+	Color: Black;
+	Background: White;
+	Box-Shadow: -2PX 2PX Firebrick;
+}
+
+/* Link Previews */
+a[href].PREVIEW {
+	Display: Block;
+	Margin: 1EM 0;
+	Border-Style: Solid Dashed Dashed Solid;
+	Border-Width: Thin;
+	Border-Radius:.2EM;
+	Padding: 1EM;
+	Color: Inherit;
+	Box-Shadow: 2PX 2PX CurrentColor;
+	Text-Decoration: None;
+}
+a[href].PREVIEW>*:First-Child { Margin-Top: 0 }
+a[href].PREVIEW>*:Last-Child { Margin-Bottom: 0 }
+a[href].PREVIEW>cite {
+	Display: Block;
+	Margin: .4EM 0;
+	Font-Size: 1.25EM;
+	Font-Style: Inherit;
+	Font-Weight: Bold;
+	Text-Decoration: Underline;
+}
+a[href].PREVIEW>p {
+	Margin: .5EM 0;
+	Font-Style: Italic;
+}
+a[href].PREVIEW time { Font-Weight: Bold }
+
+/* Notes */
+aside,
+div[role=note] {
+	Margin: 1EM 0 1EM -3EM;
+	Border: Thin DarkSalmon Dashed;
+	Padding: 1EM 1EM 1EM 4EM;
+	Color: MistyRose;
+	Background: DarkRed;
+}
+
+/* Ordered/Unordered Lists */
+ol,
+ul {
+	Margin: 1EM 0;
+	Padding: 0 0 0 2EM;
+}
+ol>li,
+ul>li { Margin: 1EM 0 }
+/* > List-Paragraphs */
+ol.PARAGRAPH,
+ul.PARAGRAPH {
+	Margin: .5EM 0 0 -1PX;
+	Border-Left: 1PX Dotted;
+}
+ol.PARAGRAPH>li,
+ul.PARAGRAPH>li { Margin:.5EM 0 }
+
+/* Page Layout */
+html {
+	Border-Style: None Double;
+	Border-Color: Transparent DarkRed;
+	Border-Width: 0 9PX;
+	Padding: 0 9PX;
+	Color: White;
+	Background:
+		Linear-Gradient(To Left, Black 24.5EM, DarkRed) Left / 50% Repeat-Y,
+		Linear-Gradient(To Right, Black 24.5EM, DarkRed) Right / 50% Repeat-Y,
+		Black;
+	Background-Color: Black;
+	Font-Family: Serif;
+}
+body {
+	Margin: Auto;
+	Padding: 3EM;
+	Max-Width: 43EM;
+}
+body>article>footer {
+	Margin-Bottom: 1.85EM;
+	Padding-Bottom: 0;
+}
+body>article>header {
+	Margin-Top: 1.85EM;
+	Padding-Top: 0;
+}
+body>article>header>time{
+	Display: Block;
+	Margin: .369EM 0;
+	Text-Align: Right;
+}
+body>article>section+p {
+	Margin: 2EM -3EM 0;
+	Border-Top: Thin Dashed;
+	Padding: 2EM 3EM 0;
+}
+
+/* Paragraph Markers */
+body>article { Counter-Reset: FIGURE PARAGRAPH SECTION }
+p,
+*.PARAGRAPH { Position: Relative }
+p::BEFORE,
+*.PARAGRAPH::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Left: -2REM;
+	Width: 2REM;
+	Text-Align: Left;
+	Text-Indent: 0;
+	Opacity: .65;
+	Counter-Increment: PARAGRAPH;
+	Content:"¶" Counter(PARAGRAPH, Decimal-Leading-Zero);
+}
+/* > Figure Paragraph Markers */
+aside p:First-Of-Type,
+div[role=note] p:First-Of-Type,
+blockquote p:First-Of-Type,
+figure p:First-Of-Type {
+	Counter-Reset: PARAGRAPH;
+	Counter-Increment: FIGURE;
+}
+aside p::BEFORE,
+aside *.PARAGRAPH::BEFORE,
+div[role=note] p::BEFORE,
+div[role=note] *.PARAGRAPH::BEFORE,
+blockquote p::BEFORE,
+blockquote *.PARAGRAPH::BEFORE,
+figure p::BEFORE,
+figure *.PARAGRAPH::BEFORE { Content:"¶" Counter(FIGURE,Upper-Alpha) Counter(PARAGRAPH) }
+/* > Paragraph Marker Styling */
+aside p::BEFORE,
+aside *.PARAGRAPH::BEFORE,
+div[role=note] p::BEFORE,
+div[role=note] *.PARAGRAPH::BEFORE {
+	Left: -3EM;
+	Color: LightCoral;
+	Opacity: 1;
+}
+blockquote p::BEFORE,
+blockquote *.PARAGRAPH::BEFORE {
+	Left: -4EM;
+	Color: MediumSlateBlue;
+	Opacity: 1;
+}
+body>article>section+p::BEFORE {
+	Top: 2EM;
+	Left: 1EM;
+}
+ol p::BEFORE,
+ol *.PARAGRAPH::BEFORE,
+ul p::BEFORE,
+ul *.PARAGRAPH::BEFORE { Left: -4EM }
+/* > No Paragraph Markers */
+a[href].PREVIEW>p::BEFORE,
+footer>p::BEFORE,
+header>p::BEFORE { Content: None }
+
+/* Preformatted Text */
+pre {
+	Margin: 1EM Auto;
+	Border: .5CH DeepPink Solid;
+	Padding: 1EM 2CH;
+	Color: LavenderBlush;
+	Background: DarkSlateBlue;
+	Max-Width: Calc(100% - 3CH);
+	Font-Family:Monospace;
+	Text-Align: Left;
+	Overflow: Scroll
+}
+pre *:Link,
+pre *:Visited { Color: HotPink }
+pre code { Color: Khaki }
+pre em,
+pre strong { Color: White }
+pre small {
+	Font: Inherit;
+	Color: Thistle;
+}
+
+/* Section Markers */
+body>article>section { Position: Relative }
+body>article>section::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Box-Sizing: Border-Box;
+	Top: 0;
+	Left: 100%;
+	Margin: -1PX 0;
+	Border: 1PX Solid;
+	Width: 3REM;
+	Color: LightGrey;
+	Background: Black;
+	Text-Align: Center;
+	Text-Indent: 0;
+	Counter-Increment: SECTION;
+	Content: "§" Counter(SECTION);
+}
+
+/* Tables */
+table {
+	Table-Layout: Fixed;
+	Margin: 1REM 0;
+	Border-Collapse: Collapse;
+	Width: 100%;
+}
+thead>tr:Last-Child>* { Border-Bottom: Thin Solid }
+tr>* {
+	Border-Left: Thin Solid;
+	Padding: .25EM;
+	Text-Align: Center;
+}
+tr>*:First-Child { Border-Left-Style: Hidden }
+</style>
+
+<article>
+	<header>
+		<h1>Fringe <small>( <strong>black</strong> version )</small></h1>
+		<p>Last updated : <time datetime="2019-03-01">01 March 2019</time>
+	</header>
+
+	<p>These are the same styles that I used for my <cite>Fringe Mastodev</cite> series, as seen here :</p>
+	<a class="PREVIEW" href="https://go.kibi.family/Oct/2018/fringe-glitch.xhtml">
+		<p>A History:</p>
+		<cite>Fringe Mastodev &#x2013; Part IV: Intermission</cite>
+		<time datetime="2018-11">November 2018</time>
+	</a>
+
+	<section id="usage">
+		<h2>Usage</h2>
+		<p>This style expects a page layout like the following :
+		<pre>&lt;article>
+	&lt;header>
+		<small>&lt;!-- Header information --></small>
+	&lt;/header>
+	<small>&lt;!-- Page content --></small>
+	&lt;footer>
+		<small>&lt;!-- Footer information --></small>
+	&lt;/footer>
+&lt;/article>
+		</pre>
+		<p>There are a few special classes : Use <code>&lt;strong class="MARK"></code> to <strong class="MARK">mark text</strong> ; use <code>&lt;span class="PARENTHETICAL"></code> for inline parenthetical content <span class="PARENTHETICAL">( like this )</span> ; use <code>&lt;span class="OPTION"></code> and <code>&lt;span class="CASE"></code> for a list of choices <span class="OPTION">{ <span class="CASE">like this</span> | <span class="CASE">or this</span> }</span>, and use <code>&lt;i class="SO-CALLED"></code> for <i class="SO-CALLED">scare quotes</i>.
+		<p>Set the <code>PARAGRAPH</code> class on non­‑<code>&lt;p></code> block elements that you want to be numbered as those they were paragraphs ; this is especially useful for lists…
+		<ul class="PARAGRAPH"><li>Like this one</ul>
+		<p>Finally, you can make your own <i class="SO-CALLED">link previews</i> by using code like the following :
+		<pre>&lt;a class="PREVIEW" href="http://example.com">
+	&lt;cite>Title&lt;/cite>
+	&lt;p>by Author&lt;/p>
+	&lt;time>1972-12-31&lt;/time>
+&lt;/a></pre>
+		<p>…Which will look like this :</p>
+		<a class="PREVIEW" href="http://example.com">
+			<cite>Title</cite>
+			<p>by Author</p>
+			<time>1972-12-31</time>
+		</a>
+	</section>
+
+	<footer>
+		🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+	</footer>
+</article>

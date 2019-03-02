@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>News Style</title>
+<meta charset="utf-8" />
+
+<style>
+@namespace "http://www.w3.org/1999/xhtml";
+@namespace SVG "http://www.w3.org/2000/svg";
+
+/* == REPLACE WITH YOUR OWN FONT SELECTIONS == */
+@font-face {
+	Font-Family: "Source Serif Pro";
+	Font-Weight: 200;
+	Src:
+		Local("SourceSerifPro-ExtraLight"),
+		Local("NotoSerif-ExtraLight");
+}
+@font-face {
+	Font-Family: "Source Serif Pro";
+	Font-Weight: 300;
+	Src:
+		Local("SourceSerifPro-Light"),
+		Local("NotoSerif-Light");
+}
+@font-face {
+	Font-Family: "Source Serif Pro";
+	Font-Weight: 400;
+	Src:
+		Local("SourceSerifPro-Regular"),
+		Local("NotoSerif-Regular");
+}
+@font-face {
+	Font-Family: "Source Serif Pro";
+	Font-Weight: 600;
+	Src:
+		Local("SourceSerifPro-Semibold"),
+		Local("NotoSerif-SemiBold");
+}
+@font-face {
+	Font-Family: "Source Serif Pro";
+	Font-Weight: 700;
+	Src:
+		Local("SourceSerifPro-Bold"),
+		Local("NotoSerif-Bold");
+}
+@font-face {
+	Font-Family: "Source Serif Pro";
+	Font-Weight: 900;
+	Src:
+		Local("SourceSerifPro-Black"),
+		Local("NotoSerif-Black");
+}
+*:Root { Font-Family: "Source Serif Pro", Serif }
+
+/* Generic Selectors and Styles */
+
+* {
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Color: Inherit;
+	Font: Inherit;
+	Text-Decoration: None;
+}
+*:Root:Root:Root:Root:Root:Root:Root:Root:Root:Root *[hidden] { Display: None }
+*[title]:Not([title=""]):Not(a) {
+	Cursor: Help;
+	Text-Decoration: Dotted Underline;
+}
+@supports Not (Text-Decoration: Dotted Underline) {
+	*[title]:Not([title=""]):Not(a) { Border-Bottom: Thin CurrentColor Dotted }
+}
+*.PAD-START { Margin-Left: Auto }
+*.PAD-END { Margin-Right: Auto }
+*.ALIGN-START { Text-Align: Left }
+*.ALIGN-END { Text-Align: Right }
+*.ALIGN-START.ALIGN-END { Text-Align: Justify }
+*.TEXT,
+*.TEXT.INLINE {
+	Display: Inline-Block;
+	Vertical-Align: Top;
+	Line-Height: 1;
+	Text-Align: Center;
+}
+*.INLINE { Display: Inline }
+
+/* Footnotes */
+
+*.FOOTNOTE {
+	Cursor: Help;
+	Text-Decoration: Dotted Underline;
+}
+@supports Not (Text-Decoration: Dotted Underline) {
+	*.FOOTNOTE { Border-Bottom: Thin CurrentColor Dotted }
+}
+*.FOOTNOTE>*.NOTE {
+	Display: Block;
+	Position: Absolute;
+	Left: 0;
+	Right: 0;
+	Margin: 0;
+	Border-Style: Double None;
+	Padding: .7REM 0;
+	Font-Family: Inherit;
+	Font-Size: Calc(1REM / 1.4);
+	Font-Weight: 200;
+	Font-Style: Normal;
+	Font-Variant: Normal;
+	Line-Height: 1REM;
+	Text-Align: Left;
+	Text-Indent: 0;
+	Color: #302F2B;
+	Background: #FAF8F7;
+	Opacity: 0;
+	Visibility: Hidden;
+	Cursor: Auto;
+	Transition: Opacity .5s, Visibility .5s;
+}
+*.FOOTNOTE:Hover>*.NOTE {
+	Opacity: 1;
+	Visibility: Visible;
+}
+
+/* Page Layout */
+
+html {
+	Font-Family: Serif;
+	Font-Weight: 300;
+	Line-Height: 1.4REM;
+	Color: #302F2B;
+	Background: #FAF8F7;
+	Text-Align: Justify;
+	Hyphens: Auto;
+}
+body {
+	Position: Relative;
+	Margin: Auto;
+	Padding: 1.4REM 2REM;
+	Max-Width: 28REM;
+	Line-Height: 1.4REM; /* Chrome doesnʼt handle `line-height` REM properly on root */
+}
+body>header,
+body>header~div[role=note] {
+	Position: Absolute;
+	Top: 1.4REM;
+	Left: 2REM;
+	Right: 2REM;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Max-Width: 28REM;
+	Height: 3REM;
+	Overflow: Hidden;
+	Font-Size: Calc(3REM / 1.4);
+	Line-Height: 3REM;
+	White-Space: NoWrap;
+	Text-Align: Left;
+	Text-Overflow: Ellipsis;
+}
+body>header *,
+body>header~div[role=note] * {
+	Display: Inline;
+	Margin: 0;
+	Padding: 0;
+	Font: Inherit;
+	Text-Indent: 0;
+}
+body>header~div[role=note] {
+	Display: Flex;
+	Justify-Content: Space-Between;
+	Top: 4.4REM;
+	Border-Style: Solid None;
+	Border-Width: Thin 0;
+	Height: 1REM;
+	Font-Size: Calc(1REM / 1.4);
+	Line-Height: 1REM;
+}
+body>header~footer {
+	Position: Absolute;
+	Left: 2REM;
+	Right: 2REM;
+	Bottom: 1.4REM;
+	Height: 1REM;
+	Overflow: Auto;
+	Color: #75706A;
+	Font-Size: Calc(1REM / 1.4);
+	Line-Height: 1REM;
+	White-Space: NoWrap;
+	Text-Align: Right;
+}
+body>header~main {
+	Display: Block;
+	Margin: 5.8REM 0 2.4REM;
+}
+
+/* Sectioning Elements */
+
+main {
+	Display: Block;
+	Position: Relative;
+}
+header {
+	Display: Block;
+	Margin: 2.8REM 0 1.4REM;
+	Border-Bottom: Medium CurrentColor Double;
+	Padding: 0 0 .7REM;
+}
+header:First-Child,
+section:First-Child { Margin-Top: 0 }
+section {
+	Display: Block;
+	Margin: 2.8REM 0 1.4REM;
+}
+section:Last-Child { Margin-Bottom: 0 }
+aside,
+div[role=note] {
+	Display: Block;
+	Margin: 1.4REM 1REM;
+	Border-Left: .25REM CurrentColor Double;
+	Padding-Left: .75REM;
+	Font-Size: Calc(1REM / 1.4);
+	Font-Weight: 200;
+	Line-Height: 1REM;
+}
+nav {
+	Display: Block;
+	Margin: 1.4REM 0 1.4REM;
+}
+footer {
+	Display: Block;
+	Font-Size: Calc(1REM / 1.4);
+	Line-Height: 1REM;
+}
+blockquote>footer {
+	Margin-Top: .7REM;
+	Text-Align: Right;
+}
+blockquote>footer::BEFORE { Content: "— "}
+
+/* Tables */
+
+table {
+	Margin: .7EM Auto;
+	Border-Collapse: Collapse;
+	Width: 100%;
+	Overflow: Auto;
+	Color: #1F1A14;
+	Background: #DEDBD9;
+	Font-Size: Calc(1REM / 1.4);
+	Line-Height: 1REM;
+	Text-Align: Left;
+}
+thead {
+	Border-Bottom: Medium CurrentColor Double;
+	Text-Align: Center;
+}
+tbody+tbody { Border-Top: Medium CurrentColor Double }
+tfoot {
+	Border-Top: Medium CurrentColor Double;
+	Font-Weight: 200;
+}
+th,
+td {
+	Border: Thin CurrentColor Solid;
+	Padding: .35EM .5EM;
+	Vertical-Align: Top;
+}
+th {
+	Font-Weight: 600;
+	Vertical-Align: Bottom;
+}
+
+/* Figures and Embeds */
+
+figure {
+	Display: Block;
+	Margin: 1.4REM Auto;
+	Width: -moz-Fit-Content;
+	Width: Fit-Content;
+	Max-Width: 100%;
+}
+figure::AFTER {
+	Display: Block;
+	Clear: Both;
+	Content: "";
+}
+audio,
+iframe,
+img,
+SVG|svg,
+video {
+	Display: Block;
+	Margin: .7EM 0;
+	Max-Width: 100%;
+}
+img.TEXT,
+SVG|svg.TEXT {
+	Margin: 0;
+	Padding: Calc(.2EM / 1.4);
+	Max-Height: Calc(1EM / 1.4);
+	Max-Width: Calc(1EM / 1.4);
+	Line-Height: 1EM;
+	Vertical-Align: Middle;
+}
+iframe[src*="//youtube.com/embed/"],
+iframe[src*="//www.youtube.com/embed/"] {
+	Width: 560PX;
+	Height: 315PX;
+}
+SVG|svg:Not([color]) { Color: CurrentColor }
+SVG|svg:Not([fill]) { Fill: CurrentColor }
+
+/* Headings */
+header h1,
+header h2,
+header h3,
+header h4,
+header h5,
+header h6 { Margin: 0 }
+
+h1 {
+	Margin: 0 0 1.4REM;
+	Font-Size: 2.8REM;
+	Line-Height: 2.8REM;
+	Font-Weight: 700;
+	Text-Align: Left;
+}
+h2 {
+	Margin: 2.8REM 0 1.4REM;
+	Font-Size: 1.4REM;
+	Line-Height: 1.4REM;
+	Font-Weight: 400;
+	Text-Align: Left;
+}
+h2:First-Child { Margin-Top: 0 }
+h3 {
+	Margin: 1.4REM 0;
+	Font-Size: 1REM;
+	Line-Height: 1.4REM;
+	Font-Weight: 700;
+	Font-Variant: Small-Caps;
+	Text-Align: Center;
+}
+h4 {
+	Margin: 1.4REM 0 .7REM;
+	Font-Size: 1REM;
+	Line-Height: 1.4REM;
+	Font-Weight: 600;
+	Text-Align: Center;
+}
+h5 {
+	Margin: .7REM 0;
+	Font-Size: 1REM;
+	Line-Height: 1.4REM;
+	Font-Weight: 700;
+	Font-Variant: Small-Caps
+	Text-Align: Left;
+}
+h6 {
+	Margin: .7REM 0 0;
+	Font-Size: 1REM;
+	Line-Height: 1.4REM;
+	Font-Weight: 700;
+	Text-Align: Left;
+}
+
+/* Lists */
+ol,
+ul,
+dl {
+	Margin: .7REM 0;
+	Padding: 0 0 0 2REM;
+}
+ol { List-Style-Type: Decimal-Leading-Zero }
+ol ol { List-Style-Type: Upper-Alpha }
+ol ol ol { List-Style-Type: Lower-Alpha }
+ol ol ol ol { List-Style-Type: Decimal }
+ul { List-Style-Type: "→ " }
+ul ul { List-Style-Type: "† " }
+ul ul ul { List-Style-Type: "⇒ " }
+ul ul ul ul { List-Style-Type: "‡ " }
+dt {
+	Display: Inline;
+	Float: Left;
+	Margin: 0 0 0 -2REM;
+	Font-Weight: 600;
+}
+dt+dt { Margin: 0 }
+dt+dt::BEFORE { Content: ", " }
+dd { Position: Relative }
+dd::BEFORE { Content: " : " }
+dd+dd::BEFORE {
+	Position: Absolute;
+	Right: 100%;
+	Content: "″ : ";
+}
+dd::AFTER {
+	Display: Block;
+	Clear: Both;
+	Content: "";
+}
+ol.INLINE,
+ul.INLINE,
+dl.INLINE {
+	Display: Inline;
+	Margin: 0;
+	Padding: 0;
+}
+ol.INLINE { Counter-Reset: Inline-List }
+ol.INLINE>li,
+ul.INLINE>li,
+dl.INLINE>dt,
+dl.INLINE>dd {
+	Display: Inline;
+	Position: Static;
+	Float: None;
+	Margin: 0;
+}
+ol.INLINE>li::BEFORE {
+	Counter-Increment: Inline-List;
+	Content: "(" Counter(Inline-List, Decimal) ") "
+}
+ul.INLINE>li::BEFORE { Content: "→ " }
+ol.INLINE>li:Not(:Last-Child)::AFTER,
+ul.INLINE>li:Not(:Last-Child)::AFTER,
+dl.INLINE>dd:Not(:Last-Child)::AFTER { Content: " " }
+dl.INLINE>dd::BEFORE { Position: Static }
+dl.INLINE>dd::AFTER {
+	Display: Inline;
+	Clear: None;
+	Content: None;
+}
+ol.BIBLIOGRAPHY { List-Style-Position: Inside }
+ul.BIBLIOGRAPHY { List-Style-Type: None }
+ol.BIBLIOGRAPHY li,
+ul.BIBLIOGRAPHY li {
+	Margin: .7REM 0;
+	Text-Indent: -2REM;
+}
+ol.BIBLIOGRAPHY p,
+ul.BIBLIOGRAPHY p {
+	Margin: .7REM 0;
+	Text-Indent: 0;
+}
+
+/* Block Elements */
+
+blockquote {
+	Margin: 1.4REM 1REM;
+	Padding: 0 1REM;
+	Font-Size: Calc(1REM / 1.4);
+	Line-Height: 1REM;
+}
+blockquote blockquote,
+figure>blockquote { Margin: 0 }
+blockquote blockquote::BEFORE { Content: No-Open-Quote }
+blockquote blockquote::AFTER { Content: No-Close-Quote }
+figcaption {
+	Margin: .7EM 0 0;
+	Text-Align: Center;
+	Font-Size: Calc(1REM / 1.4);
+	Line-Height: 1REM;
+}
+figcaption::BEFORE,
+figcaption::AFTER {
+	Display: Block;
+	Clear: Both;
+	Content: "";
+}
+hr {
+	Padding: 0 0 1.4EM;
+	Width: 100%;
+	Height: 0;
+	Background: Transparent;
+}
+p+p,
+p+div.PARA,
+div.PARA+p,
+div.PARA+div.PARA { Text-Indent: 2EM }
+p>*,
+div.PARA>* { Text-Indent: 0 }
+p.INLINE { Text-Indent: 0 }
+blockquote>p:Not(:Empty)::BEFORE,
+blockquote>div.PARA:Not(:Empty)::BEFORE {
+	Display: Inline-Block;
+	Margin: 0 0 0 -1EM;
+	Width: 1EM;
+	Text-Align: Right;
+	Text-Indent: 0;
+	Content: Open-Quote;
+}
+blockquote>p:Not(:Empty)::AFTER,
+blockquote>div.PARA:Not(:Empty)::AFTER { Content: No-Close-Quote }
+blockquote>p:Last-Of-Type:Not(:Empty)::AFTER,
+blockquote>div.PARA:Last-Of-Type:Not(:Empty)::AFTER { Content: Close-Quote }
+p.VERSE,
+div.VERSE {
+	White-Space: Pre-Line;
+	Text-Indent: 0;
+	Text-Indent: 2EM Hanging Each-Line; /* Not supported anywhere */
+}
+p+p.VERSE,
+div.PARA+p.VERSE,
+div.VERSE+p.VERSE,
+p+div.VERSE,
+div.PARA+div.VERSE,
+div.VERSE+div.VERSE { Margin-Top: .7EM }
+pre {
+	Box-Sizing: Border-Box;
+	Margin: .7REM 0;
+	Padding: 0 1REM;
+	Max-Width: 100%;
+	Overflow-X: Auto;
+	Overflow-Y: Hidden;
+	Font-Size: 1REM;
+	Line-Height: 1REM;
+	Text-Align: Left;
+}
+
+/* Phrasing content */
+a[href] {
+	Outline-Style: Outset;
+	Outline-Width: 1PX;
+	Outline-Color: Transparent;
+	Color: #1F1A14;
+	Background: Transparent;
+	Font-Weight: Bolder;
+	Text-Decoration: Underline;
+	Transition: Outline-Color .5s, Background-Color .5s;
+}
+a[href]:Active,
+a[href]:Hover {
+	Outline-Color: #75706A;
+	Background: #FAF8F7;
+}
+a[href]:Active { Outline-Style: Inset }
+:Root body>header a[href],
+body>header~div[role=note] a[href] {
+	Color: Inherit;
+	Outline: None;
+	Background: None;
+	Font-Weight: Inherit;
+	Transition: None;
+}
+b { Font-Weight: 600 }
+code { Font-Weight: 200 }
+del { Text-Decoration: Double Line-Through }
+dfn {
+	Font-Weight: Bolder;
+	Font-Variant: Small-Caps;
+}
+em { Text-Decoration: Underline }
+i { Font-Variant: Small-Caps }
+ins { Text-Decoration: Double Underline }
+mark {
+	Border: Thin #948D87 Solid;
+	Border-Radius: .4REM;
+	Padding: 0 .2REM;
+	Color: #302F2B;
+	Background: #FAF8F7;
+}
+s { Text-Decoration: Line-Through }
+small { Font-Weight: Lighter }
+strong { Font-Weight: 700 }
+sub {
+	Font-Size: Calc(1EM / 1.4);
+	Vertical-Align: Baseline;
+	Line-Height: .7EM;
+}
+sup {
+	Font-Size: Calc(1EM / 1.4);
+	Vertical-Align: Super;
+	Line-Height: .7EM;
+	Text-Transform: Uppercase;
+}
+u { Text-Decoration: Underline }
+u.TITLE { Text-Decoration-Style: Wavy }
+</style>
+
+<header>
+	<h1>News Style</h1>
+</header>
+<div role="note">
+	<p>By Kyebego</p>
+	<p>Last updated : <time datetime="2019-03-01">01 March 2019</time></p>
+</div>
+
+<main>
+	<p>This is a simplified form of my <a href="../news-vertical/">News Vertical</a> style for people who <del>donʼt use Firefox</del><ins>donʼt want or need vertical layout support</ins>. Like News Vertical, it does not use italic or oblique type, but expects a wide variety of font weights : <code>200</code>, <code>300</code>, <code>400</code>, <code>600</code>, <code>700</code>, <code>900</code>. I recommend <a href="https://adobe-fonts.github.io/source-serif-pro/" rel="noopener noreferrer"><cite>Source Serif Pro</cite></a>.
+	<p>Your page should have the following layout :
+	<pre>&lt;header>
+	&lt;h1>Title&lt;/h1>
+&lt;/header>
+&lt;div role="note">
+	&lt;!-- Page info (optional) -->
+&lt;/div>
+&lt;main>
+	&lt;!-- Page content -->
+&lt;/main>
+&lt;footer>
+	&lt;!-- Page footer (optional) -->
+&lt;/footer></pre>
+	<p>Or, if you prefer, you can stick everything inside <code>&lt;main></code> for a more minimal look.</p>
+	<p>News defines a number of helpful classes :
+	<dl>
+		<dt><code>TEXT</code></dt>
+		<dd>Defines an inline block, for use in running text. Apply this class to images and SVGs which you want to appear text­‑sized.
+		<dt><code>INLINE</code></dt>
+		<dd>Defines an inline element. With list elements, this creates an inline list, like the following : <ol class="INLINE"><li>First item<li>Second item</ol>
+		<dt><code>PAD-START</code></dt>
+		<dt><code>PAD-END</code></dt>
+		<dd>Sets the left or right margin to <code>auto</code> ; use both to centre content.
+		<dt><code>ALIGN-START</code></dt>
+		<dt><code>ALIGN-END</code></dt>
+		<dd>Aligns text left or right. Use both to justify text.
+		<dt><code>TITLE</code></dt>
+		<dd>Use this on <code>&lt;u></code> to produce a wavy underline.
+		<dt><code>VERSE</code></dt>
+		<dd>Use this on <code>&lt;p></code> or <code>&lt;div></code> to denote a stanza of verse. Line­‑breaks will be preserved.
+		<dt><p><code>PARA</code></dt>
+		<dd>Use this on <code>&lt;div></code> to create a typographical paragraph ( functions like <code>&lt;p></code> ). You should probably only use this when dealing with inline lists, for example :
+			<div class="PARA"><p class="INLINE">This is a paragraph with a list : <ul class="INLINE"><li>A list item<li>Another list item</ul><p class="INLINE"> …And the paragraph continues.</p>
+		<dt><code>FOOTNOTE</code></dt>
+		<dt><code>NOTE</code></dt>
+		<dd>Wrap text which has a footnote with a <code>&lt;span></code> of <code>class="FOOTNOTE"</code>, and then include the note inside the span ( preferably, at the end ) with <code>class="NOTE"</code>, <span class="FOOTNOTE">like this.<span class="NOTE">A footnote.</span></span>
+		<dt><code>BIBLIOGRAPHY</code></dt>
+		<dd>Formats a <code>&lt;ol></code> or <code>&lt;ul></code> list as a bibliography. Put annotations inside of <code>&lt;p></code> tags, like follows :
+			<ul class="BIBLIOGRAPHY">
+				<li>
+					Kyebego. <i>News Style</i>. <a href="https://style.u2764.com/news/">https://style.u2764.com/news/</a>.
+					<p>A very cool style.
+				</li>
+			</ul>
+	</dl>
+	<p>The above aside, just write semantic HTML and everything should turn out OK.</p>
+</main>
+
+<footer>
+	🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+</footer>
