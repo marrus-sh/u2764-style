@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Journal Style</title>
+<meta charset="UTF-8" />
+
+<style>
+@namespace "http://www.w3.org/1999/xhtml";
+@namespace SVG "http://www.w3.org/2000/svg";
+
+html {
+	Margin: 0;
+	Padding: 0;
+	Color: #FAF8F7;
+	Background:
+		/*
+		The following is a pattern you will see a ⸰ lot ⸰. Because we are working with a ⸰ very ⸰ limited palette ( 8 greys and 8 colours ), we can use “ hatching ” to simulate “ in­‑between ” colours. You will see this same technique invoked by very old webpages which tried to limit themselves to the “ web safe ” colour set—they used bitmap images, and, very rarely, you will see modern ones trying to pull of the same effect with SVGs. We use linear gradients, because theyʼre compact, easy to read, and get the job done.
+
+		When the angle of our gradient lines up with the pixel grid ( a multiple of 90° ), we can use “ hard ” stops and exact pixel values. The rest of the time, we need to apply a little bit of gradient between stops as a form of anti­‑aliasing.
+		*/
+		Repeating-Linear-Gradient(
+			45DEG,
+			Transparent 0,
+			Transparent 1.2PX,
+			#1F1A14 1.42PX,
+			#1F1A14 2.62PX,
+			Transparent 2.84PX
+		),
+		Repeating-Linear-Gradient(
+			-45DEG,
+			Transparent 0,
+			Transparent 1.2PX,
+			#1F1A14 1.42PX,
+			#1F1A14 2.62PX,
+			Transparent 2.84PX
+		),
+		#302F2B;
+}
+body {
+	Margin: 0;
+	Padding: 0;
+}
+
+/*
+Basic styling.
+*/
+b {
+	Display: Inline-Block;
+	Margin: -1PX;
+	Padding: 0 .25EM;
+	Border: 1PX #B01C1C Solid;
+	Color: #1F1A14;
+	Background: Repeating-Linear-Gradient(
+		-45DEG,
+		#FAF8F7 0,
+		#FAF8F7 .6PX,
+		#F56E97 .71PX,
+		#F56E97 1.34PX,
+		#FAF8F7 1.41PX
+	), #F56E97;
+	Font-Weight: Inherit;
+	Line-Height: 1.25EM;
+}
+pre b { Padding: 0 }
+pre br { Display: None } /* `pre` elements are wrapped­‑to­‑fit ; `br` elements can be used suggest line­‑breaks for people viewing the page without our styling ( for example, in “ reader mode ” ). Actual newline characters can always be used to create line­‑breaks regardless. */
+blockquote {
+	Margin: 0;
+	Padding: 0;
+}
+code { Font: Inherit }
+del,
+ins { Text-Decoration-Style: Double }
+dfn {
+	Font-Style: Italic;
+	Font-Weight: Inherit;
+	Text-Decoration: Double Underline;
+}
+em {
+	Font-Style: Inherit;
+	Font-Weight: Bolder;
+}
+footer {
+	Display: Block;
+	Margin: 1EM;
+	Border-Top: Thin Solid;
+	Padding: 1EM;
+	Font-Size: Small; /* The `small` tag will make it even smaller though */
+	Text-Align: Center;
+}
+blockquote>footer {
+	Margin: 1EM 0;
+	Padding: 1EM 1EM 0;
+	Text-Align: Right
+}
+*|*:Link { Color: #4B2DF7 }
+*|*:Visited { Color: #D15919 }
+*|*:Link:Active { Color: #B01C1C }
+*|*:Visited:Active { Color: #57534C }
+article>footer *|*:Link,
+article>footer *|*:Visited { Color: #FAE13E }
+article>footer *|*:Link:Active,
+article>footer *|*:Visited:Active { Color: #B8B3B0 }
+SVG|svg {
+	Width: Auto;
+	Height: 2EX;
+	Vertical-Align: Middle;
+}
+*::SELECTION {
+	Color: #1F1A14;
+	Background: #F56E97;
+}
+
+/*
+The top heading. As this is the “ cover page ”, Iʼve styled this header to look like the cover of a notebook.
+*/
+header {
+	Display: Block;
+	Position: Relative;
+	Color: #FAF8F7;
+	Background:
+		Repeating-Linear-Gradient(
+			45DEG,
+			Transparent 0,
+			Transparent 1.2PX,
+			#1F1A14 1.42PX,
+			#1F1A14 2.62PX,
+			Transparent 2.84PX
+		),
+		Linear-Gradient(
+			To Right,
+			Transparent 1.125IN,
+			#57534C 1.125IN,
+			#57534C 1.375IN,
+			Transparent 1.375IN
+		) Center / 2.5IN 2.5IN Repeat,
+		Linear-Gradient(
+			To Top,
+			Transparent 2.25IN,
+			#57534C 2.25IN
+		) Center -.75IN / 2.5IN 2.5IN Repeat,
+		#1F1A14;
+	Text-Align: Left;
+}
+header::BEFORE {
+	Display: Inline-Block; /* Make sure no whitespace follows the beginning of the header */
+	Width: Calc(50% - 16.5EM); /* Adds left padding if necessary */
+	Min-Width: 1EM;
+	Height: 100%;
+	Content: "";
+}
+h1 {
+	Display: Inline-Block; /* Shrink to content */
+	Padding: 11.25EM 0 1.25EM;
+	Font: 900 1.5REM / 1 Monospace;
+	Text-Align: Left;
+	Text-Transform: Uppercase;
+}
+h1>span,
+h1>small {
+	Display: Block;
+	Box-Sizing: Border-Box;
+	Margin: .375REM 0;
+	Padding: 0 .375REM;
+	Height: 1.5REM;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Text-Align: Right;
+	White-Space: Pre;
+	Transform-Origin: Bottom Left;
+	Transform: Rotate(-8DEG);
+}
+h1>small {
+	Padding: .3REM .375REM .2REM;
+	Font-Size: 1REM;
+	Text-Transform: Lowercase;
+}
+h1>span>SVG|svg,
+h1>small>SVG|svg {
+	Margin: 0 .1EM;
+	Width: .8EM;
+	Height: .8EM;
+	Vertical-Align: Baseline;
+}
+
+/*
+Normally I would define the `max-width` on the article itself, but setting things up as below allows one to do fun things with individual sections and break up the layout more.
+*/
+article {
+	Display: Block;
+	Position: Relative; /* Enables `z-index` */
+	Overflow: Hidden; /* Keeps decorative stuff from producing scrollbars */
+	Z-Index: 0; /* Establishes new stacking context in front of page background */
+}
+article>div,
+article>section {
+	Display: Block;
+	Position: Relative;
+	Margin: 1EM Auto .25IN;
+	Padding: 3EM 1EM;
+	Max-Width: 31EM;
+	Color: #302F2B;
+}
+article>div::BEFORE,
+article>section::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Bottom: 0;
+	Left: -1.5IN;
+	Right: -1.5IN;
+	Box-Shadow: .125IN .125IN #B01C1C;
+	Background:
+		Radial-Gradient( /* Holes */
+			Circle At .4375IN 1.25IN,
+			#302F2B .1875IN,
+			Transparent .1875IN
+		) Top Left / 1.5IN 4.25IN Repeat-Y,
+		Linear-Gradient( /* Left­‑hand line */
+			To Right,
+			Transparent Calc(1.5IN - 1PX),
+			#B01C1C Calc(1.5IN - 1PX)
+		) Center Left / 1.5IN 100% No-Repeat,
+		Repeating-Linear-Gradient( /* Lined­‑paper effect */
+			To Top,
+			Transparent 0,
+			#4B2DF7 0,
+			#4B2DF7 1.5PX,
+			Transparent 1.5PX,
+			Transparent 1.5EM
+		) Bottom Center / 100% Calc(100% - 1IN) No-Repeat,
+		Repeating-Linear-Gradient( /* Right­‑hand line hatching */
+			-45DEG,
+			Transparent 0,
+			Transparent .6PX,
+			#1AACEB .71PX,
+			#1AACEB 1.34PX,
+			Transparent 1.41PX,
+			Transparent 2.83PX
+		) Calc(100% - 1.5IN) Center / 1PX 100% No-Repeat;
+	Z-Index: -1;
+	Content: "";
+}
+article>div::AFTER,
+article>section::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Bottom: 0;
+	Left: -1.5IN;
+	Right: -1.5IN;
+	Background: #FAF8F7;
+	Z-Index: -100;
+	Content: "";
+}
+
+/*
+Headings have a boxy look ; the design inspiration is those construction paper headings you sometimes see on poster­‑boards.
+
+An empty link is used in section headings to link to the section itself. After it is clicked ( or if the containing section is otherwise the target of the URL ), extra styling is applied, and the link is swapped out for one that targets the top of the page : via `::before` and `::after` pseudo­‑elements, to appropriately compensate for rotation.
+*/
+h2 {
+	Display: Block;
+	Clear: Both;
+	Position: Relative;
+	Margin: -3PX -3PX Calc(1.25EM - 3PX);
+	Border-Style: Solid Double Double Solid;
+	Border-Color: #1F1A14;
+	Border-Width: 3PX;
+	Padding: .35EX;
+	Color: #302F2B;
+	Background: #FAF8F7;
+	Box-Shadow: 2PX 2PX #1F1A14;
+	Font: Bold X-Large/1.25 Sans-Serif;
+	Z-Index: 0; /* A stacking context will be created when the transform occurs, so this is just for consistency */
+}
+h2:Focus-Within { Transform: Rotate(-4DEG) } /* Not supported everywhere */
+h2:Hover { Transform: Rotate(-2DEG) }
+h2:Active {
+	Transform-Origin: Center 60%;
+	Transform: Rotate(6DEG);
+}
+h2::BEFORE,
+h2::AFTER,
+h2 a:Empty {
+	Display: Block;
+	Position: Absolute;
+	Top: -3PX;
+	Bottom: -3PX;
+	Left: -3PX;
+	Right: -3PX;
+}
+h2 a:Empty[href="#"] { Display: None }
+h2 SVG|svg {
+	Height: 1.2EM;
+	Vertical-Align: Text-Bottom;
+}
+h2 SVG|svg:Not([color]) { Color: #B01C1C }
+h2:Hover::BEFORE {
+	Transform: Rotate(2DEG);
+	Content: "";
+}
+section:Target h2::AFTER {
+	Border-Style: Solid Double Double Solid;
+	Border-Color: #1F1A14;
+	Border-Width: 3PX;
+	Background: #EB9100;
+	Box-Shadow: 2PX 2PX #1F1A14;
+	Z-Index: -1;
+	Content: "";
+}
+section:Target h2::BEFORE {
+	Top: -.6EM;
+	Bottom: -.6EM;
+	Left: -.6EM;
+	Right: -.6EM;
+	Background: Repeating-Linear-Gradient(
+		-45DEG,
+		Transparent 0,
+		Transparent .6PX,
+		#EB9100 .71PX,
+		#EB9100 1.34PX,
+		Transparent 1.41PX
+	);
+	Z-Index: -2;
+	Content: "";
+}
+section:Target h2 a:Empty { Display: None }
+section:Target h2 a:Empty[href="#"] { Display: Block }
+
+/*
+Marginal notes are just sans­‑serif floats. Thereʼs nothing too complicated here and no reason to get fancy. Visually, theyʼre somewhere in­‑between a pull quote and a sticky.
+*/
+div[role=note],
+aside[role=note] {
+	Display: Block;
+	Position: Relative; /* This is just for stacking behaviour */
+	Box-Sizing: Border-Box;
+	Float: Right;
+	Clear: Right;
+	Margin: .6EM -2REM .6EM 1CH;
+	Border: Medium #1F1A14 Double;
+	Padding: .6EM 1CH;
+	Width: 12EM;
+	Max-Width: 50%;
+	Overflow: Hidden;
+	Overflow-Wrap: Break-Word;
+	Color: #1F1A14;
+	Background: #FAE13E;
+	Box-Shadow: -2PX 2PX 0 1PX #302F2B;
+	Font: Normal Larger/1.2 Sans-Serif;
+	Text-Align: Left;
+	Z-Index: 100; /* Put these notes on top of everything else */
+}
+div[role=note] b,
+aside[role=note] b,
+div[role=note] p::BEFORE,
+aside[role=note] p::BEFORE,
+div[role=note] pre::BEFORE,
+aside[role=note] pre::BEFORE,
+div[role=note] span.DASH,
+aside[role=note] span.DASH {
+	Border-Color: #1F1A14;
+	Color: #FAE13E;
+	Background: #1F1A14;
+}
+div[role=note] strong,
+aside[role=note] strong {
+	Border-Color: #1F1A14;
+	Background: #FAE13E;
+}
+
+/*
+There are two possible approaches to rendering a pilcrow at the beginning of a paragraph : using `text-indent` and absolute positioning, or using an inline­‑block as seen here. One downside to using an inline­‑block is : Whitespace at the beginning of paragraphs is now significant, as it will be rendered between the first letter and the `::before`. However, it makes getting proper alignment and positioning ⸰ much ⸰ easier.
+
+Paragraphs themselves are inline elements, ⸰ not ⸰ blocks, which gives them a “ highlighter ” effect. `::after` is used to create the space between them—the styling for `strong` does this as well.
+
+The `.PARAGRAPHS` div provides overflow clipping for paragraphs, to ensure that they donʼt exceed their designated area on the page. This mostly comes into play with `strong` elements.
+
+`pre` is taken as a whitespace­‑significant variant of `p` in our usage.
+*/
+div.PARAGRAPHS {
+	Margin: 0;
+	Padding: 0 2EM;
+	Overflow: Hidden;
+}
+p,
+pre {
+	Display: Inline;
+	Margin: 0;
+	Padding: .075EM 0 .05EM;
+	Font: Inherit;
+	Font-Variant-Numeric: Oldstyle-Nums;
+	Line-Height: 1.5;
+}
+p { Hyphens: Auto }
+pre { White-Space: Pre-Wrap }
+p::BEFORE,
+pre::BEFORE {
+	Display: Inline-Block;
+	Position: Relative; /* For `z-index`ing */
+	Margin: -1PX Calc(.75EM - 1PX) -1PX Calc(-1.25EM - 1PX);
+	Border: 1PX #B01C1C Solid;
+	Padding: 0 1.25EM 0 0;
+	Width: 1.25EM;
+	Height: 1.25EM;
+	Color: #1F1A14;
+	Background: Repeating-Linear-Gradient(
+		-45DEG,
+		#FAF8F7 0,
+		#FAF8F7 .6PX,
+		#F56E97 .71PX,
+		#F56E97 1.34PX,
+		#FAF8F7 1.41PX
+	), #F56E97;
+	Line-Height: 1.25EM;
+	Text-Align: Center;
+	Z-Index: 1; /* Places on top of everything else */
+	Content: "¶";
+}
+p::AFTER,
+pre::AFTER {
+	Display: Block;
+	Margin-Bottom: 1.5EM;
+	Height: 0;
+	Content: "";
+}
+p:Last-Child::AFTER,
+pre:Last-Child::AFTER { Content: None }
+
+/*
+This is a huge hack. Basically weʼre shifting the entire important portion down a line, without changing how the words are flowed, and using the resulting whitespace to draw the eye and break up the text. You canʼt do this and then “ pick up where you left off ” ( well, you hypothetically could, but it would mean wrapping everything afterwards in a span ) so we fudge around it by terminating the line in a bunch of dots and then resuming the paragraph on a new line. It looks alright.
+
+The `::after` actually creates the dots, and forces the newline—did you know you can stick a block element inside an inline ? You can and itʼs perfect for this. The `::before` ensures that the space ⸰ before ⸰ the first line is whited out—otherwise, if the text only spans one line, the dots would appear there also.
+*/
+strong {
+	Position: Relative;
+	Top: 1.5EM;
+	Margin: -.25EM 0 -.125EM;
+	Padding: Calc(.25EM - 5PX) 0 Calc(.125EM - 5PX) .5EM;
+	Color: #302F2B;
+	Background: #FAF8F7;
+	Border-Style: Double None;
+	Border-Color: #B01C1C;
+	Border-Width: 5PX;
+}
+strong::BEFORE {
+	Display: Inline-Block;
+	Position: Relative;
+	Margin: 0 0 0 -100%;
+	Width: 100%;
+	Height: 1EM;
+	Background: Inherit;
+	Z-Index: -2;
+	Content: "";
+}
+strong::AFTER {
+	Display: Block;
+	Position: Relative;
+	Bottom: 1.5EM;
+	Box-Sizing: Border-Box;
+	Margin: Calc(.75EM - 1PX) 0 1.5EM;
+	Border-Top-Style: Dotted;
+	Border-Top-Color: Inherit;
+	Border-Top-Width: 2PX;
+	Width: Calc(100% - 1EM);
+	Height: .75EM;
+	Z-Index: -3;
+	Content: "";
+}
+
+/*
+When I handwrite texts, I wind up doing really long, swooshy ( more­‑than‑ )em­‑dashes. To replicate that look here, weʼll use a span which hides the text ( using `overflow` so that it stays “ rendered ” ) and then constructs its own curly dash using `::before` and `::after` pseudo­‑elements. ( Note : This differs from the actual swung dash `⁓`, which I use as a lilting voice mark. )
+*/
+span.DASH {
+	Display: Inline-Block;
+	Position: Relative;
+	Margin: -1PX Calc(.25CH - 1PX);
+	Border: 1PX #B01C1C Solid;
+	Padding: 1.45EX .25EX 0;
+	Width: 5CH;
+	Height: 1PX;
+	Color: #1F1A14;
+	Background: Repeating-Linear-Gradient(
+		-45DEG,
+		#FAF8F7 0,
+		#FAF8F7 .6PX,
+		#F56E97 .71PX,
+		#F56E97 1.34PX,
+		#FAF8F7 1.41PX
+	), #F56E97;
+	Overflow: Hidden;
+}
+span.DASH::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Bottom: .4EX;
+	Left: .35EX;
+	Border-Top: 1PX CurrentColor Solid;
+	Border-Left: 2PX CurrentColor Solid;
+	Border-Radius: .35EX 0;
+	Width: 50%;
+	Height: .35EX;
+	Content: "";
+}
+span.DASH::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Bottom: .75EX;
+	Right: .35EX;
+	Border-Bottom: 1PX CurrentColor Solid;
+	Border-Right: 2PX CurrentColor Solid;
+	Border-Radius: .35EX 0;
+	Width: 50%;
+	Height: .35EX;
+	Content: "";
+}
+</style>
+
+<article>
+	<header><h1>
+		<span>Journal</span>
+		<span>Style</span>
+		<small>Last Updated:</small>
+		<small><time>2019-03-24</time></small>
+	</h1></header>
+
+	<section id="about">
+		<h2>
+			About
+			<a href="#about"></a>
+			<a href="#"></a>
+		</h2>
+		<div class="PARAGRAPHS">
+			<p>This is the lined­‑paper journal style from <a href="https://www.u2764.com/cover.xhtml">the cover issue of my journal</a>. Itʼs more peculiar and finicky than most of my styles, due to the complexity of its design, but itʼs also extremely attractive, so thatʼs okay. <strong>It really, honestly, looks best in Firefox, </strong>due to the fact that WebKit has rounding errors when dealing with linear gradients and background images which <em>really</em> mess up the lined­‑paper effect. The longer the section, the more likely youʼll see this noticably occur.
+		</div>
+	</section>
+
+	<section id="usage">
+		<h2>
+			Usage
+			<a href="#usage"></a>
+			<a href="#"></a>
+		</h2>
+		<div class="PARAGRAPHS">
+			<p>This style expects a page layout like the following :
+			<pre>&lt;article>
+		&lt;header><small>&lt;!-- No whitespace --></small>&lt;h1>
+			&lt;span><small>&lt;!-- Header information --></small>&lt;/span>
+			&lt;span><small>&lt;!-- Wrap each line in a &lt;span> --></small>&lt;/span>
+		&lt;/h1>&lt;/header>
+		&lt;section>
+			&lt;h2 id="section_id">
+				<small>&lt;!-- Section title --></small>
+				&lt;a href="#section_id"><small>&lt;!-- Empty --></small>&lt;/a>
+				&lt;a href="#"><small>&lt;!-- Empty --></small>&lt;/a>
+			&lt;/h2>
+			&lt;div class="PARAGRAPHS">
+				<small>&lt;!-- Page content --></small>
+			&lt;/div>
+		&lt;/section>
+		&lt;footer>
+			<small>&lt;!-- Footer information --></small>
+		&lt;/footer>
+	&lt;/article></pre>
+			<div role="note">
+				A <code>&lt;div></code> or <code>&lt;aside></code> with <code>role="note"</code> can be used to create <b>marginal notes</b>.
+				Using them for paragraph content is possible, but not recommended due to size constraints.
+			</div>
+			<p>Make sure not to leave whitespace at the beginning of <code>&lt;p></code> tags, as it <em>will</em> be rendered after the pilcrow. Use <code>&lt;span class="DASH"></code> to wrap em­‑dashes<span class="DASH">—</span>like this. <code>&lt;strong></code> has a <strong>very unconventional</strong> appearance.
+			<p>Always wrap <code>&lt;p></code> and <code>&lt;pre></code> tags in a <code>&lt;div class="PARAGRAPHS"></code>.
+		</div>
+	</section>
+
+	<footer>
+		🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+	</footer>
+</article>
