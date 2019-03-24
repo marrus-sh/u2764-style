@@ -367,6 +367,13 @@ aside[role=note] strong {
 	Border-Color: #1F1A14;
 	Background: #FAE13E;
 }
+div[role=note]::SELECTION,
+aside[role=note]::SELECTION,
+div[role=note] *::SELECTION,
+aside[role=note] *::SELECTION {
+	Color: #FAE13E;
+	Background: #1F1A14;
+}
 
 /*
 There are two possible approaches to rendering a pilcrow at the beginning of a paragraph : using `text-indent` and absolute positioning, or using an inline­‑block as seen here. One downside to using an inline­‑block is : Whitespace at the beginning of paragraphs is now significant, as it will be rendered between the first letter and the `::before`. However, it makes getting proper alignment and positioning ⸰ much ⸰ easier.
