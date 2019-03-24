@@ -79,13 +79,11 @@ SVG|svg {
 }
 
 /*
-The top heading. As this is the “ cover page ”, Iʼve styled this header to look like the cover of a notebook.
+The top heading.
 */
 header {
 	Display: Block;
 	Position: Relative;
-	Color: #DEDBD9;
-	Background: #4B2DF7;
 	Text-Align: Left;
 }
 header::BEFORE {
@@ -110,7 +108,7 @@ h1>small {
 	Padding: 0 .5REM;
 	Height: 1.5REM;
 	Color: #4B2DF7;
-	Background: #DEDBD9;
+	Background: #FAF8F7;
 	Text-Align: Right;
 	White-Space: Pre;
 }
@@ -175,6 +173,7 @@ article>section::BEFORE { /* Topbar */
 	Right: -1EM;
 	Border-Style: Double Solid;
 	Border-Width: 5PX 2PX;
+	Color: #FAF8F7;
 	Height: 2PX;
 	Content: "";
 }
@@ -187,6 +186,7 @@ article>section::AFTER { /* BottomBox */
 	Border: 4PX Double;
 	Width: 8PX;
 	Height: 8PX;
+	Color: #FAF8F7;
 	Background: Padding-Box CurrentColor;
 	Content: "";
 }
@@ -202,9 +202,10 @@ h2 {
 	Position: Relative;
 	Margin: -3PX -3PX Calc(1.25EM - 3PX);
 	Border-Style: Solid Double Double Solid;
+	Border-Color: #FAF8F7;
 	Border-Width: 3PX;
 	Padding: .35EX;
-	Box-Shadow: 2PX 2PX CurrentColor;
+	Box-Shadow: 2PX 2PX #FAF8F7;
 	Font: Bold X-Large/1.25 Sans-Serif;
 	Z-Index: 0; /* A stacking context will be created when the transform occurs, so this is just for consistency */
 }
