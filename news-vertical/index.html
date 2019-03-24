@@ -157,7 +157,12 @@
 	Transition: Opacity .5s, Visibility .5s;
 	Z-Index: 100;
 }
+*.FOOTNOTE:Focus>*.NOTE,
 *.FOOTNOTE:Hover>*.NOTE {
+	Opacity: 1;
+	Visibility: Visible;
+}
+*.FOOTNOTE:Focus-Within>*.NOTE { /* Not supported everywhere */
 	Opacity: 1;
 	Visibility: Visible;
 }
@@ -678,7 +683,7 @@ u.TITLE { Text-Decoration-Style: Wavy }
 </header>
 <div role="note">
 	<p>By Kyebego</p>
-	<p>Last updated : <time datetime="2019-03-01">01 March 2019</time></p>
+	<p>Last updated : <time datetime="2019-03-24">24 March 2019</time></p>
 </div>
 
 <main>
@@ -733,7 +738,7 @@ u.TITLE { Text-Decoration-Style: Wavy }
 				<div class="PARA"><p class="INLINE">This is a paragraph with a list : <ul class="INLINE"><li>A list item<li>Another list item</ul><p class="INLINE"> …And the paragraph continues.</p>
 			<dt><code>FOOTNOTE</code></dt>
 			<dt><code>NOTE</code></dt>
-			<dd>Wrap text which has a footnote with a <code>&lt;span></code> of <code>class="FOOTNOTE"</code>, and then include the note inside the span ( preferably, at the end ) with <code>class="NOTE"</code>, <span class="FOOTNOTE">like this.<span class="NOTE">A footnote.</span></span>
+			<dd>Wrap text which has a footnote with a <code>&lt;span></code> of <code>class="FOOTNOTE"</code>, and then include the note inside the span ( preferably, at the end ) with <code>class="NOTE"</code>, <span class="FOOTNOTE" tabindex="0">like this.<span class="NOTE">A footnote.</span></span> Setting a <code>tabindex</code> of <code>0</code> on the footnote is recommended.
 			<dt><code>BIBLIOGRAPHY</code></dt>
 			<dd>Formats a <code>&lt;ol></code> or <code>&lt;ul></code> list as a bibliography. Put annotations inside of <code>&lt;p></code> tags, like follows :
 				<ul class="BIBLIOGRAPHY">

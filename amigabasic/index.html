@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Journal Style</title>
+<title>Amiga Basic Style</title>
 <meta charset="UTF-8" />
 
 <style>
@@ -10,34 +10,14 @@
 html {
 	Margin: 0;
 	Padding: 0;
-	Color: #FAF8F7;
-	Background:
-		/*
-		The following is a pattern you will see a ⸰ lot ⸰. Because we are working with a ⸰ very ⸰ limited palette ( 8 greys and 8 colours ), we can use “ hatching ” to simulate “ in­‑between ” colours. You will see this same technique invoked by very old webpages which tried to limit themselves to the “ web safe ” colour set—they used bitmap images, and, very rarely, you will see modern ones trying to pull of the same effect with SVGs. We use linear gradients, because theyʼre compact, easy to read, and get the job done.
-
-		When the angle of our gradient lines up with the pixel grid ( a multiple of 90° ), we can use “ hard ” stops and exact pixel values. The rest of the time, we need to apply a little bit of gradient between stops as a form of anti­‑aliasing.
-		*/
-		Repeating-Linear-Gradient(
-			45DEG,
-			Transparent 0,
-			Transparent 1.2PX,
-			#1F1A14 1.42PX,
-			#1F1A14 2.62PX,
-			Transparent 2.84PX
-		),
-		Repeating-Linear-Gradient(
-			-45DEG,
-			Transparent 0,
-			Transparent 1.2PX,
-			#1F1A14 1.42PX,
-			#1F1A14 2.62PX,
-			Transparent 2.84PX
-		),
-		#302F2B;
+	Color: #DEDBD9;
+	Background: #4B2DF7;
 }
 body {
 	Margin: 0;
 	Padding: 0;
+	Font-Size: 1REM; /* Some browsers will try to reduce the size of monospace fonts */
+	Font-Family: Monospace;
 }
 
 /*
@@ -47,16 +27,9 @@ b {
 	Display: Inline-Block;
 	Margin: -1PX;
 	Padding: 0 .25EM;
-	Border: 1PX #B01C1C Solid;
-	Color: #1F1A14;
-	Background: Repeating-Linear-Gradient(
-		-45DEG,
-		#FAF8F7 0,
-		#FAF8F7 .6PX,
-		#F56E97 .71PX,
-		#F56E97 1.34PX,
-		#FAF8F7 1.41PX
-	), #F56E97;
+	Border: 1PX #EB9100 Solid;
+	Color: #FAF8F7;
+	Background: #D15919;
 	Font-Weight: Inherit;
 	Line-Height: 1.25EM;
 }
@@ -91,22 +64,18 @@ blockquote>footer {
 	Padding: 1EM 1EM 0;
 	Text-Align: Right
 }
-*|*:Link { Color: #4B2DF7 }
-*|*:Visited { Color: #D15919 }
-*|*:Link:Active { Color: #B01C1C }
-*|*:Visited:Active { Color: #57534C }
-article>footer *|*:Link,
-article>footer *|*:Visited { Color: #FAE13E }
-article>footer *|*:Link:Active,
-article>footer *|*:Visited:Active { Color: #B8B3B0 }
+*|*:Link,
+*|*:Visited { Color: #FAE13E }
+*|*:Link:Active,
+*|*:Visited:Active { Color: #B8B3B0 }
 SVG|svg {
 	Width: Auto;
-	Height: 2EX;
+	Height: 1EM;
 	Vertical-Align: Middle;
 }
 *::SELECTION {
-	Color: #1F1A14;
-	Background: #F56E97;
+	Color: #FAF8F7;
+	Background: #D15919;
 }
 
 /*
@@ -115,29 +84,8 @@ The top heading. As this is the “ cover page ”, Iʼve styled this head
 header {
 	Display: Block;
 	Position: Relative;
-	Color: #FAF8F7;
-	Background:
-		Repeating-Linear-Gradient(
-			45DEG,
-			Transparent 0,
-			Transparent 1.2PX,
-			#1F1A14 1.42PX,
-			#1F1A14 2.62PX,
-			Transparent 2.84PX
-		),
-		Linear-Gradient(
-			To Right,
-			Transparent 1.125IN,
-			#57534C 1.125IN,
-			#57534C 1.375IN,
-			Transparent 1.375IN
-		) Center / 2.5IN 2.5IN Repeat,
-		Linear-Gradient(
-			To Top,
-			Transparent 2.25IN,
-			#57534C 2.25IN
-		) Center -.75IN / 2.5IN 2.5IN Repeat,
-		#1F1A14;
+	Color: #DEDBD9;
+	Background: #4B2DF7;
 	Text-Align: Left;
 }
 header::BEFORE {
@@ -158,19 +106,17 @@ h1>span,
 h1>small {
 	Display: Block;
 	Box-Sizing: Border-Box;
-	Margin: .375REM 0;
-	Padding: 0 .375REM;
+	Margin: .5REM 0;
+	Padding: 0 .5REM;
 	Height: 1.5REM;
-	Color: #1F1A14;
-	Background: #FAF8F7;
+	Color: #4B2DF7;
+	Background: #DEDBD9;
 	Text-Align: Right;
 	White-Space: Pre;
-	Transform-Origin: Bottom Left;
-	Transform: Rotate(-8DEG);
 }
 h1>small {
-	Padding: .3REM .375REM .2REM;
 	Font-Size: 1REM;
+	Line-Height: 1.5;
 	Text-Transform: Lowercase;
 }
 h1>span>SVG|svg,
@@ -196,61 +142,52 @@ article>div,
 article>section {
 	Display: Block;
 	Position: Relative;
-	Margin: 1EM Auto .25IN;
+	Margin: 1EM Auto;
+	Border-Left:	Transparent 1EM Solid;
+	Border-Right: Transparent 1EM Solid;
 	Padding: 3EM 1EM;
-	Max-Width: 31EM;
-	Color: #302F2B;
+	Max-Width: 35EM;
+	Color: #DEDBD9;
+	Background: #4B2DF7;
+	Box-Shadow: 0 0 0 2PX #FAF8F7; /* Fake border */
+}
+article>div:Nth-Child(3n+0),
+article>section:Nth-Child(3n+0) {
+	Margin: -3EM Calc(50% - 29.7EM) -2EM Auto;
+	Padding-Left: 0;
+	Padding-Right: Calc(29.7EM - 50%);
+	Z-Index: 1;
+}
+article>div:Nth-Child(3n+0)+footer,
+article>section:Nth-Child(3n+0)+footer { Margin-Top: 3REM }
+article>div:Nth-Child(3n+1),
+article>section:Nth-Child(3n+1) {
+	Margin: 1EM Auto 1EM Calc(50% - 23.1EM);
+	Padding-Left: Calc(23.1EM - 50%);
+	Padding-Right: 0;
 }
 article>div::BEFORE,
-article>section::BEFORE {
+article>section::BEFORE { /* Topbar */
 	Display: Block;
 	Position: Absolute;
 	Top: 0;
-	Bottom: 0;
-	Left: -1.5IN;
-	Right: -1.5IN;
-	Box-Shadow: .125IN .125IN #B01C1C;
-	Background:
-		Radial-Gradient( /* Holes */
-			Circle At .4375IN 1.25IN,
-			#302F2B .1875IN,
-			Transparent .1875IN
-		) Top Left / 1.5IN 4.25IN Repeat-Y,
-		Linear-Gradient( /* Left­‑hand line */
-			To Right,
-			Transparent Calc(1.5IN - 1PX),
-			#B01C1C Calc(1.5IN - 1PX)
-		) Center Left / 1.5IN 100% No-Repeat,
-		Repeating-Linear-Gradient( /* Lined­‑paper effect */
-			To Top,
-			Transparent 0,
-			#4B2DF7 0,
-			#4B2DF7 1.5PX,
-			Transparent 1.5PX,
-			Transparent 1.5EM
-		) Bottom Center / 100% Calc(100% - 1IN) No-Repeat,
-		Repeating-Linear-Gradient( /* Right­‑hand line hatching */
-			-45DEG,
-			Transparent 0,
-			Transparent .6PX,
-			#1AACEB .71PX,
-			#1AACEB 1.34PX,
-			Transparent 1.41PX,
-			Transparent 2.83PX
-		) Calc(100% - 1.5IN) Center / 1PX 100% No-Repeat;
-	Z-Index: -1;
+	Left: -1EM;
+	Right: -1EM;
+	Border-Style: Double Solid;
+	Border-Width: 5PX 2PX;
+	Height: 2PX;
 	Content: "";
 }
 article>div::AFTER,
-article>section::AFTER {
+article>section::AFTER { /* BottomBox */
 	Display: Block;
 	Position: Absolute;
-	Top: 0;
 	Bottom: 0;
-	Left: -1.5IN;
-	Right: -1.5IN;
-	Background: #FAF8F7;
-	Z-Index: -100;
+	Right: -1EM;
+	Border: 4PX Double;
+	Width: 8PX;
+	Height: 8PX;
+	Background: Padding-Box CurrentColor;
 	Content: "";
 }
 
@@ -265,12 +202,9 @@ h2 {
 	Position: Relative;
 	Margin: -3PX -3PX Calc(1.25EM - 3PX);
 	Border-Style: Solid Double Double Solid;
-	Border-Color: #1F1A14;
 	Border-Width: 3PX;
 	Padding: .35EX;
-	Color: #302F2B;
-	Background: #FAF8F7;
-	Box-Shadow: 2PX 2PX #1F1A14;
+	Box-Shadow: 2PX 2PX CurrentColor;
 	Font: Bold X-Large/1.25 Sans-Serif;
 	Z-Index: 0; /* A stacking context will be created when the transform occurs, so this is just for consistency */
 }
@@ -295,7 +229,9 @@ h2 SVG|svg {
 	Height: 1.2EM;
 	Vertical-Align: Text-Bottom;
 }
-h2 SVG|svg:Not([color]) { Color: #B01C1C }
+h2 SVG|svg:Not([color]) { Color: #EB9100 }
+div:Target h2 SVG|svg:Not([color]),
+section:Target h2 SVG|svg:Not([color]) { Color: Inherit } /* Otherwise, the colour will match the background */
 h2:Hover::BEFORE {
 	Transform: Rotate(2DEG);
 	Content: "";
@@ -332,23 +268,22 @@ section:Target h2 a:Empty[href="#"] { Display: Block }
 Marginal notes are just sans­‑serif floats. Thereʼs nothing too complicated here and no reason to get fancy. Visually, theyʼre somewhere in­‑between a pull quote and a sticky.
 */
 div[role=note],
-aside[role=note] {
+aside[role=note] { /* Gives notes the look of a “ sticky note application ” */
 	Display: Block;
 	Position: Relative; /* This is just for stacking behaviour */
 	Box-Sizing: Border-Box;
 	Float: Right;
 	Clear: Right;
-	Margin: .6EM -2REM .6EM 1CH;
-	Border: Medium #1F1A14 Double;
-	Padding: .6EM 1CH;
+	Margin: .375EM -2EM .375EM 1CH;
+	Border: 3PX Double;
+	Padding: Calc(.375EM - 3PX) 1CH;
 	Width: 12EM;
 	Max-Width: 50%;
 	Overflow: Hidden;
 	Overflow-Wrap: Break-Word;
 	Color: #1F1A14;
-	Background: #FAE13E;
+	Background: #EB9100;
 	Box-Shadow: -2PX 2PX 0 1PX #302F2B;
-	Font: Normal Larger/1.2 Sans-Serif;
 	Text-Align: Left;
 	Z-Index: 100; /* Put these notes on top of everything else */
 }
@@ -361,19 +296,19 @@ aside[role=note] pre::BEFORE,
 div[role=note] span.DASH,
 aside[role=note] span.DASH {
 	Border-Color: #1F1A14;
-	Color: #FAE13E;
+	Color: #EB9100;
 	Background: #1F1A14;
 }
 div[role=note] strong,
 aside[role=note] strong {
 	Border-Color: #1F1A14;
-	Background: #FAE13E;
+	Background: #EB9100;
 }
 div[role=note]::SELECTION,
 aside[role=note]::SELECTION,
 div[role=note] *::SELECTION,
 aside[role=note] *::SELECTION {
-	Color: #FAE13E;
+	Color: #EB9100;
 	Background: #1F1A14;
 }
 
@@ -407,19 +342,12 @@ pre::BEFORE {
 	Display: Inline-Block;
 	Position: Relative; /* For `z-index`ing */
 	Margin: -1PX Calc(.75EM - 1PX) -1PX Calc(-1.25EM - 1PX);
-	Border: 1PX #B01C1C Solid;
+	Border: 1PX #EB9100 Solid;
 	Padding: 0 1.25EM 0 0;
 	Width: 1.25EM;
 	Height: 1.25EM;
-	Color: #1F1A14;
-	Background: Repeating-Linear-Gradient(
-		-45DEG,
-		#FAF8F7 0,
-		#FAF8F7 .6PX,
-		#F56E97 .71PX,
-		#F56E97 1.34PX,
-		#FAF8F7 1.41PX
-	), #F56E97;
+	Color: #FAF8F7;
+	Background: #D15919;
 	Line-Height: 1.25EM;
 	Text-Align: Center;
 	Z-Index: 1; /* Places on top of everything else */
@@ -434,6 +362,30 @@ pre::AFTER {
 }
 p:Last-Child::AFTER,
 pre:Last-Child::AFTER { Content: None }
+section>div.PARAGRAPHS>*:Last-Child::AFTER { /* Cursor */
+	Display: Inline-Block;
+	Margin: 0;
+	Height: Auto;
+	Background:
+		Border-Box Repeating-Linear-Gradient(
+			45DEG,
+			Transparent 0,
+			Transparent .6PX,
+			#D15919 .71PX,
+			#D15919 1.34PX,
+			Transparent 1.41PX
+		),
+		Border-Box Repeating-Linear-Gradient(
+			-45DEG,
+			Transparent 0,
+			Transparent .6PX,
+			#D15919 .71PX,
+			#D15919 1.34PX,
+			Transparent 1.41PX
+		),
+		#EB9100;
+	Content: " ";
+}
 
 /*
 This is a huge hack. Basically weʼre shifting the entire important portion down a line, without changing how the words are flowed, and using the resulting whitespace to draw the eye and break up the text. You canʼt do this and then “ pick up where you left off ” ( well, you hypothetically could, but it would mean wrapping everything afterwards in a span ) so we fudge around it by terminating the line in a bunch of dots and then resuming the paragraph on a new line. It looks alright.
@@ -445,10 +397,10 @@ strong {
 	Top: 1.5EM;
 	Margin: -.25EM 0 -.125EM;
 	Padding: Calc(.25EM - 5PX) 0 Calc(.125EM - 5PX) .5EM;
-	Color: #302F2B;
-	Background: #FAF8F7;
+	Color: #DEDBD9;
+	Background: #4B2DF7;
 	Border-Style: Double None;
-	Border-Color: #B01C1C;
+	Border-Color: #EB9100;
 	Border-Width: 5PX;
 }
 strong::BEFORE {
@@ -483,19 +435,12 @@ span.DASH {
 	Display: Inline-Block;
 	Position: Relative;
 	Margin: -1PX Calc(.25CH - 1PX);
-	Border: 1PX #B01C1C Solid;
+	Border: 1PX #EB9100 Solid;
 	Padding: 1.45EX .25EX 0;
 	Width: 5CH;
 	Height: 1PX;
-	Color: #1F1A14;
-	Background: Repeating-Linear-Gradient(
-		-45DEG,
-		#FAF8F7 0,
-		#FAF8F7 .6PX,
-		#F56E97 .71PX,
-		#F56E97 1.34PX,
-		#FAF8F7 1.41PX
-	), #F56E97;
+	Color: #FAF8F7;
+	Background: #D15919;
 	Overflow: Hidden;
 }
 span.DASH::BEFORE {
@@ -526,7 +471,7 @@ span.DASH::AFTER {
 
 <article>
 	<header><h1>
-		<span>Journal</span>
+		<span>Amiga Basic</span>
 		<span>Style</span>
 		<small>Last Updated:</small>
 		<small><time>2019-03-24</time></small>
@@ -539,7 +484,7 @@ span.DASH::AFTER {
 			<a href="#"></a>
 		</h2>
 		<div class="PARAGRAPHS">
-			<p>This is the lined­‑paper journal style from <a href="https://www.u2764.com/cover.xhtml">the cover issue of my journal</a>. Itʼs more peculiar and finicky than most of my styles, due to the complexity of its design, but itʼs also extremely attractive, so thatʼs okay. <strong>It really, honestly, looks best in Firefox, </strong>due to the fact that WebKit has rounding errors when dealing with linear gradients and background images which <em>really</em> mess up the lined­‑paper effect. The longer the section, the more likely youʼll see this noticably occur.
+			<pre>This is the Amiga 500–inspired style from <a href="https://www.u2764.com/cover.xhtml">the <br />cover issue of my journal</a>.    It maintains some of <br />the “ journal ” look from that issue ( especially in the case of headings ), resulting in an <br />appealing blend of traditional and Commodore <br />æsthetics.</pre>
 		</div>
 	</section>
 
@@ -550,32 +495,36 @@ span.DASH::AFTER {
 			<a href="#"></a>
 		</h2>
 		<div class="PARAGRAPHS">
-			<p>This style expects a page layout like the following :
-			<pre>&lt;article>
-		&lt;header><small>&lt;!-- No whitespace --></small>&lt;h1>
-			&lt;span><small>&lt;!-- Header information --></small>&lt;/span>
-			&lt;span><small>&lt;!-- Wrap each line in a &lt;span> --></small>&lt;/span>
-		&lt;/h1>&lt;/header>
-		&lt;section>
-			&lt;h2 id="section_id">
-				<small>&lt;!-- Section title --></small>
-				&lt;a href="#section_id"><small>&lt;!-- Empty --></small>&lt;/a>
-				&lt;a href="#"><small>&lt;!-- Empty --></small>&lt;/a>
-			&lt;/h2>
-			&lt;div class="PARAGRAPHS">
-				<small>&lt;!-- Section content --></small>
-			&lt;/div>
-		&lt;/section>
-		&lt;footer>
-			<small>&lt;!-- Footer information --></small>
-		&lt;/footer>
-	&lt;/article></pre>
+			<p>This style expects a page layout like the <br />following :
+			<pre> <!-- Intentional whitepace -->
+&lt;article>
+  &lt;header>&lt;!-- No whitespace -->&lt;h1>
+    &lt;span>&lt;!-- Header information -->&lt;/span>
+    &lt;span>&lt;!-- Give each line a &lt;span> -->&lt;/span>
+  &lt;/h1>&lt;/header>
+  &lt;section>
+    &lt;h2 id="section_id">
+      &lt;!-- Section title -->
+      &lt;a href="#section_id">&lt;!-- Empty -->&lt;/a>
+      &lt;a href="#">&lt;!-- Empty -->&lt;/a>
+    &lt;/h2>
+    &lt;div class="PARAGRAPHS">
+      &lt;!-- Section content -->
+    &lt;/div>
+  &lt;/section>
+  &lt;footer>
+    &lt;!-- Footer information -->
+  &lt;/footer>
+&lt;/article></pre>
 			<div role="note">
 				A <code>&lt;div></code> or <code>&lt;aside></code> with <code>role="note"</code> can be used to create <b>marginal notes</b>.
 				Using them for paragraph content is possible, but not recommended due to size constraints.
 			</div>
-			<p>Make sure not to leave whitespace at the beginning of <code>&lt;p></code> tags, as it <em>will</em> be rendered after the pilcrow. Use <code>&lt;span class="DASH"></code> to wrap em­‑dashes<span class="DASH">—</span>like this. <code>&lt;strong></code> has a <strong>very unconventional </strong>appearance.
-			<p>Always wrap <code>&lt;p></code> and <code>&lt;pre></code> tags in a <code>&lt;div class="PARAGRAPHS"></code>.
+			<pre>Make sure not to leave whitespace at the <br />beginning of <code>&lt;p></code> tags, as it <em>will</em> be rendered after <br />the pilcrow.    Use <code>&lt;span class="DASH"></code> to wrap <br />em­‑dashes<span class="DASH">—</span>like this.    <code>&lt;strong></code> has a <strong>very <br />unconventional </strong>appearance.</pre>
+			<pre>Always wrap <code>&lt;p></code> and <code>&lt;pre></code> tags in a <code>&lt;div <br />class="PARAGRAPHS"></code>.    You can use <code>&lt;b></code> inside of <br /><code>&lt;pre></code> tags to accent special characters, for <br />example in lists :
+
+ <b>+</b>  Like this one.</pre>
+ 			<pre>The <code>&lt;br></code> element will not be displayed inside of <br /><code>&lt;pre></code> tags ( as they are soft­‑wrapped ) ;  you can <br />use this to provide line­‑breaking opportunities for <br />people who choose to view the page without styling, <br />or in their browserʼs Reader View.    “ Hard ” line <br />breaks in the source, naturally, will still be <br />rendered.</pre>
 		</div>
 	</section>
 
