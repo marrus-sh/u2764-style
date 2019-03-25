@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Manifesto Style</title>
+<meta charset="UTF-8" />
+
+<style>
+html {
+	Margin: 0;
+	Padding: 0;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Font: 700 Large/1.5 Arial, Tahoma, "Trebuchet MS", Futura, Sans-Serif;
+	Text-Transform: Lowercase;
+}
+body {
+	Box-Sizing: Border-Box;
+	Margin: 0 Auto;
+	Padding: 1IN 0 1IN 1IN;
+	Max-Width: 8.5IN;
+}
+article { Counter-Reset: Section }
+header { Text-Align: Center }
+h1 {
+	Margin: 0;
+	Font-Size: Larger;
+	Text-Transform: Uppercase;
+}
+section { Counter-Increment: Section }
+h2 {
+	Margin: 1.5EM 0 0;
+	Font: Inherit;
+	Text-Transform: Uppercase;
+}
+section h2::BEFORE { Content: Counter(Section) ". " }
+ol,
+ul {
+	Margin: 0;
+	Padding: 0;
+	List-Style-Position: Inside;
+}
+@counter-style Decimal-Dot-Space { /* See CSS Counter Styles Level 3 ( Editorʼs Draft, 09 December 2018 ), only supported in Firefox at time of publication */
+	System: Extends Decimal;
+	Negative: "−";
+	Suffix: ". ";
+}
+ol { List-Style-Type: Decimal-Dot-Space }
+li { Margin: .75EM 0 }
+p { Margin: 0 }
+figcaption p,
+p+p {
+	Margin-Top: Calc(.75EM - 1PX);
+	Border-Top: 2PX Solid;
+	Padding-Top: Calc(.75EM - 1PX);
+}
+header p {
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+}
+div[role=note] {
+	Margin: Calc(.75EM - 1PX) 2EM Calc(.75EM - 1PX)  Calc(2EM - 1IN);
+	Border: 2PX Solid;
+	Padding: Calc(.75EM - 1PX) Calc(.25IN - 2PX) Calc(.75EM - 1PX) Calc(.75IN - 2EM - 2PX);
+	Font-Size: Smaller;
+}
+div[role=note] p+p { Border-Top-Style: Dashed }
+figure {
+	Display: Block;
+	Margin: Calc(.75EM - 1PX) 2EM Calc(.75EM - 1PX)  Calc(2EM - 1IN);
+	Border: 2PX Solid;
+	Padding: 20PX 30PX;
+	Line-Height: 1;
+	Text-Align: Center;
+}
+figure>hr {
+	Margin: 21PX -30PX;
+	Border: 1PX Solid;
+	Width: Calc(100% + 60PX);
+	Height: 0;
+	Color: Inherit;
+}
+figure>img {
+	Vertical-Align: Text-Top;
+	Max-Width: 100%;
+}
+figure.MANGA {
+	Display: Flex;
+	Flex-Wrap: Wrap;
+	Direction: RTL;
+}
+figure.MANGA>img {
+	Flex-Grow: 1;
+	Width: 50%;
+	Min-Width: 210PX;
+	Max-Width: 420PX;
+	Height: Auto;
+}
+figcaption {
+	Display: Block;
+	Direction: LTR;
+	Margin: 21PX -30PX -20PX;
+	Padding: 0 0 Calc(.75EM - 1PX);
+	Width: Calc(100% + 60PX);
+	Font-Size: Smaller;
+	Line-Height: 1.5;
+}
+hr {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Height: 4.5EM;
+}
+blockquote {
+	Margin: 0;
+	Padding: 0 .25IN;
+	Font-Size: Larger;
+	Font-Weight: Normal;
+	Font-Style: Italic;
+}
+blockquote em,
+blockquote cite,
+blockquote i { Font-Style: Normal }
+code {
+	Font-Family: "Courier New", Monospace;
+	Text-Transform: None;
+}
+cite {
+	Font-Style: Italic;
+	Font-Variant: Small-Caps;
+}
+u {
+	Font-Variant: Small-Caps;
+	Text-Decoration: None;
+}
+*:Link { Color: #4B2DF7 }
+*:Visited { Color: #B01C1C }
+*:Link:Active,
+*:Visited:Active { Color: #D15919 }
+*::SELECTION { Background: #1AACEB80 }
+</style>
+
+<article>
+	<header>
+		<h1>Manifesto Style</h1>
+		<small>Last updated : <time datetime="2019-03-25">25 March 2019</time></small>
+	</header>
+
+	<p>This style was used for <a href="https://www.u2764.com/page02.xhtml">page 02 of my journal.</a> It is visually inspired, with apologies, by <a href="https://hthr.itch.io/meatpunk-manifesto" rel="noopener noreferrer"><u>Heather Flowers</u>ʼs <cite>Meatpunks Manifesto</cite></a>. However, it is a fairly complete style, with support for figures, blockquotes, lists, and horizontal rules.
+	<p>Although this style <em>generally</em> ( not always ) makes all text lowercase, it is <em>recommended</em> you use “ standard ” casing in your source, for the benefit of people reading your document without styling or in Reader View.
+
+	<section id="usage">
+		<h2>Usage</h2>
+		<p>Inside of an <code>&lt;article></code>, you can use  <code>&lt;section></code>s to give numbering to  <code>&lt;h2></code> headings.
+		<p>The  <code>&lt;u></code> element should be used to mark up proper nouns, and will render them in small­‑caps.
+		<div role="note">
+			<p>You can use <code>&lt;div role="note"></code> for marginal notes like this one.
+		</div>
+		<p>Finally, you can set the <code>MANGA</code> class on <code>&lt;figure></code> elements and it will display any <code>&lt;img></code> children as manga pages, displayed right­‑to­‑left. For left­‑to­‑right display, use <code>&lt;figure style="Direction: LTR"></code>. Use <code>&lt;hr></code> to separate pairs of pages.
+	</section>
+
+	<footer>
+		🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+	</footer>
+</article>
