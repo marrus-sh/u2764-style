@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Transpop Style</title>
+<meta charset="UTF-8" />
+
+<style>
+html {
+	Padding: 0 8PX;
+	Color: #1F1A14;
+	Background: Linear-Gradient(
+		To Right,
+		#F56E97,
+		#1AACEB
+	);
+	Font-Family: "Helvetica Neue", "Lucida Grande", Sans-Serif;
+	Font-Weight: 300;
+	Text-Align: Justify;
+	Text-Align-Last: Center;
+}
+html::BEFORE {
+	Display: Block;
+	Position: Fixed;
+	Top: 0;
+	Bottom: 0;
+	Left: 8PX;
+	Right: 8PX;
+	Background: #FAF8F7;
+	Opacity: .6;
+	Z-Index: -1;
+	Content: "";
+}
+body {
+	Position: Relative;
+	Margin: 0 Auto;
+	Padding: 1EM;
+	Max-Width: 40EM;
+	Hyphens: Auto;
+	Z-Index: 0;
+}
+body::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Bottom: 0;
+	Left: 0;
+	Right: 0;
+	Background: #FAF8F7;
+	Box-Shadow:
+		-5PX 2PX 5PX #4B2DF7,
+		5PX 2PX 5PX #B01C1C;
+	Opacity: .8;
+	Z-Index: -1;
+	Content: "";
+}
+body>header {
+	Display: Block;
+	Position: Relative;
+	Margin: -1EM -1EM 0;
+	Padding: .5EM .5EM 0;
+	Overflow: Hidden;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Text-Align: Center;
+}
+body>header::AFTER {
+	Display: Block;
+	Margin: .5EM Calc(50% - 50VW) 0;
+	Height: 1PX;
+	Background:  Linear-Gradient(
+		To Right,
+		#F56E97,
+		#1AACEB
+	);
+	Content: "";
+}
+section {
+	Display: Grid;
+	Grid-Template-Columns: 1FR 1FR;
+	Grid-Auto-Flow: Dense;
+}
+section>* {
+	Display: Block;
+	Position: Relative;
+	Align-Self: Center;
+	Margin: 1.2EM 1EM;
+}
+section>h2:First-Child {
+	Grid-Column-Start: 1;
+	Grid-Column-End: 3;
+}
+section>h2:First-Child+*,
+section>h2:First-Child+*+* { Margin-Top: 0 }
+section>*:Nth-Child(4n+3),
+section>h2:First-Child~*:Nth-Child(4n+0) { Grid-Column-Start: 2 }
+section>h2:First-Child~*:Nth-Child(4n+3) { Grid-Column-Start: Auto }
+section>*:Nth-Child(2n+1)::BEFORE,
+section>h2:First-Child~*:Nth-Child(2n+0)::BEFORE,
+section>*:Nth-Child(2n+1)::AFTER,
+section>h2:First-Child~*:Nth-Child(2n+0)::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Top: -1.5EM;
+	Bottom: -1.5EM;
+	Left: -1.5EM;
+	Right: -1.5EM;
+	Margin: Auto;
+	Width: 1EM;
+	Height: 1EM;
+	Color: #75706A;
+	Font-Family: Arial, Sans-Serif;
+	Line-Height: 1EM;
+}
+section>h2:First-Child::AFTER,
+section>h2:First-Child~*:Nth-Child(2n+1)::BEFORE,
+section>h2:First-Child~*:Nth-Child(2n+1)::AFTER { Content: None }
+section>*~*:Nth-Child(2n+1)::BEFORE,
+section>h2:First-Child+*~*:Nth-Child(2n+0)::BEFORE {
+	Bottom: Auto;
+	Content: "↓";
+}
+section>*:Nth-Child(4n+1)::AFTER,
+section>h2:First-Child~*:Nth-Child(4n+2)::AFTER {
+	Left: Auto;
+	Content: "→";
+}
+section>*:Nth-Child(4n+3)::AFTER,
+section>h2:First-Child~*:Nth-Child(4n+0)::AFTER {
+	Right: Auto;
+	Content: "←";
+}
+*:Root section>*:Not(h2):Last-Child::AFTER,
+*:Root section>h2:Not(:First-Child):Last-Child::AFTER { Content: None }
+@media (Max-Width: 400PX) {
+	*:Root:Root:Root section>* {
+		Grid-Column-Start: 1;
+		Grid-Column-End: 3;
+		Hyphens: Auto;
+	}
+	*:Root:Root:Root section>*:Not(h2),
+	*:Root:Root:Root section>h2:Not(:First-Child) { Margin-Top: 0 }
+	*:Root:Root:Root section>*:Not(h2)::BEFORE,
+	*:Root:Root:Root section>h2:Not(:First-Child)::BEFORE,
+	*:Root:Root:Root section>*:Not(h2)::AFTER,
+	*:Root:Root:Root section>h2:Not(:First-Child)::AFTER { Content: None }
+}
+h1 {
+	Margin: 0;
+	Color: #302F2B;
+	Font-Size: 1.5EM;
+	Line-Height: 1;
+	Text-Transform: Uppercase;
+	Hyphens: None;
+}
+h2 {
+	Margin: 2EM 0 1EM;
+	Padding: 0 1.25EM;
+	Text-Align: Center;
+	Font-Size: 3EM;
+	Font-Weight: 800;
+	Hyphens: None;
+}
+h2::AFTER { Content: "." }
+footer {
+	Display: Block;
+	Margin: 6EM 0 0;
+	Font-Size: Calc(2EM / 3);
+}
+*:Link { Color: #4B2DF7 }
+*:Visited { Color: #B01C1C }
+*:Link:Active,
+*:Visited:Active { Color: #75706A }
+</style>
+
+<header>
+	<h1>Transpop Style</h1>
+</header>
+
+<p><small>Last updated : <time datetime="2019-03-24">24 March 2019</time></small>
+<section id="about">
+	<h2>About</h2>
+	<p>This style is a parody of corporate æsthetic ( Apple etc ) and their attempts to profit off of queer and subversive design elements, inspired specifically by <a href="https://www.lokidesign.net/journal/2016/2/22/the-propaganda-of-pantone-colour-and-subcultural-sublimation" rel="noopener noreferrer"><cite>The Propaganda of Pantone : Colour and Subcultural Sublimation</cite></a> by Kevin Lo of LOKI Design.
+	<p>It has that slender white bar at the top, those pink and blue gradients that millennials love, translucency atop translucency, and a layout so confusing that it needs little arrows in order to direct you where to go.
+	<p>Bear in mind that this is Not Exactly a Serious Style for Serious Usage and ill­‑suited for most kinds of content that arenʼt just paragraphs of text. Please Do Not Use This As The Principal Design For Your Website.
+	<p>Itʼs Joke.
+	<p>The initial version of this style first premiered in <a href="https://www.u2764.com/page01.xhtml">page 01 of my journal</a>.
+</section>
+
+<section id="usage">
+	<h2>Usage</h2>
+	<p>Use a <code>&lt;section></code> element to define a grouping of paragraphs like this one. The first element in this section should be the heading, in the form of an <code>&lt;h2></code>.
+	<p>The remaining children, <strong>no matter what they are</strong>, will be fit into the grid as seen here.
+</section>
+
+<footer>
+	🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+</footer>

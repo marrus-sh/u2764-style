@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Elmek Style</title>
+<meta charset="UTF-8" />
+
+<style>
+html {
+	Padding: 8PX; /* This padding taken from the default `body` stylings on Firefox */
+	Color: #FAE13E;
+	Background: #1F1A14;
+	Line-Height: 1.2;
+}
+body {
+	Margin: 0;
+	Position: Relative;
+	Box-Sizing: Border-Box;
+	Padding: 0 0 0 16%;
+	Width: Calc(800PX + 16%);
+	Max-Width: 100%;
+	Font-Weight: Bold;
+	Text-Align: Center;
+}
+body::AFTER,
+header::AFTER,
+hr {
+	Display: Block;
+	Margin: 1.2REM Auto; /* These represent `br`s */
+	Border: None;
+	Padding: 0;
+	Width: 254PX;
+	Height: 5PX;
+	Background: Linear-Gradient(
+		To Right,
+		#1F1A14 -6.25%,
+		#FAE13E 25%,
+		#FAF8F7 50%,
+		#FAE13E 75%,
+		#1F1A14 106.25%
+	);
+	Content: "";
+}
+
+/* Sidebar */
+body>aside:First-Of-Type {
+	Display: Block;
+	Position: Absolute;
+	Box-Sizing: Border-Box;
+	Top: 0;
+	Bottom: 0;
+	Left: -8PX; /* Shifts the 8PX outer left padding to the other side */
+	Padding: 8PX;
+	Width: 16%;
+	Color: #FAE13E;
+	Background: #1F1A14;
+	Overflow: Auto;
+	Text-Align: Left;
+}
+body>aside:First-Of-Type h2 { Font-Size: 1EM; /* font="3" */ }
+body>aside:First-Of-Type ol,
+body>aside:First-Of-Type ul {
+	Margin: 0;
+	Padding: 0;
+	List-Style-Position: Inside;
+	Font-Weight: Inherit;
+}
+body>aside:First-Of-Type li,
+body>aside:First-Of-Type p {
+	Display: Block;
+	Margin: 1.2EM 0;
+	Padding: 0;
+	Font-Size: Calc(8EM / 9); /* font="2" */
+	Font-Weight: Inherit;
+}
+body>aside:First-Of-Type ol li { Display: List-Item }
+
+/* Tables */
+table {
+	Margin: 1.2EM Auto;
+	Width: 100%;
+	Max-Width: 731PX;
+	Border: Grey 1PX Outset;
+	Border-Spacing: 1PX;
+	Font-Weight: Normal;
+	Text-Align: Center;
+}
+table p { Text-Align: Center }
+table p:Last-Child { Margin-Bottom: 0 }
+col { Width: 10% }
+colgroup:First-Child>col:Only-Child { Width: 25% }
+th,
+td {
+	Border: Grey 1PX Outset;
+	Vertical-Align: Middle;
+}
+th { Font-Weight: Bold }
+th[scope=row],
+th[scope=rowgroup],
+th[scope=row] p,
+th[scope=rowgroup] p { Text-Align: Left }
+
+/* Main content */
+figure {
+	Display: Block;
+	Margin: 2.4EM;
+}
+figure>a>img,
+figure>img {
+	Display: Block;
+	Margin: Auto;
+}
+figcaption { Margin: 1.2EM }
+blockquote {
+	Margin: 2.4EM 0;
+	Font-Weight: Bold;
+}
+blockquote dl,
+blockquote ol,
+blockquote ul,
+blockquote p {
+	Margin: 1.2EM 0 0;
+	Text-Align: Center;
+}
+blockquote footer { Font-Weight: Normal }
+footer {
+	Display: Block;
+	Margin: 1.2EM 0;
+	Font-Size: Calc(8EM / 9); /* font="2" */
+}
+iframe {
+	Display: Block;
+	Margin: 0 Calc(50% - 234PX); /* Centers on overflow */
+	Border: None;
+	Padding: 0;
+	Width: 468PX;
+	Background: Transparent;
+	Overflow: Hidden;
+}
+h1 {
+	Margin: 0; /* LadyMage didnʼt implement this using an h1 element, just `font` and `center` */
+	Font-Size: 2EM; /* font="6" */
+	Font-Weight: Inherit;
+	Text-Align: Center;
+	Text-Transform: Uppercase;
+}
+h2 {
+	Margin: 2.4EM 0;
+	Font-Size: 1.2EM; /* font="4" */
+	Text-Transform: Uppercase;
+}
+h2 small {
+	Font-Size: 1EM;
+	Text-Transform: None;
+}
+dl,
+ol,
+ul,
+p {
+	Margin: 1.2EM 0;
+	Font-Size: 1.2EM; /* font="4" */
+	Font-Weight: Normal;
+	Text-Align: Left;
+}
+*:Link { Color: #FAE13E }
+*:Visited { Color: #EB9100 }
+</style>
+
+<header>
+	<h1>Elmek Style</h1>
+	<small>Last updated : <time datetime="2019-03-24">24 March 2019</time></small>
+</header>
+
+<aside>
+	<p>Designed by Kyebego
+</aside>
+
+<p>The style of this page is heavily inspired by that of <a href="https://web.archive.org/web/19991109004540/http://www.geocities.com/TimesSquare/Alley/3024/eqmain.html" rel="noopener noreferrer">LadyMageʼs EverQuest page</a> over on GeoCitiesʼs TimesSquare :: Alley. Of course, this original page was written in HTML 3.2, not HTML5+CSS, so things have been updated a bit.
+<p>A variant of this style first premiered in <a href="https://www.u2764.com/page01.xhtml">page 01 of my journal</a>.
+<p>The first <code>&lt;aside></code> child of <code>&lt;body></code> will be used as the sidebar.
+
+<footer>
+	🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+</footer>

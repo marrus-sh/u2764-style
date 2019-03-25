@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Linernotes Style</title>
+<meta charset="UTF-8" />
+
+<style>
+html {
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Overflow-X: Hidden;
+	Overflow-Y: Auto;
+}
+/*
+Column layouts mix up the styling paradigm a little because instead of limiting the horizontal space, itʼs all about limiting the vertical—you donʼt want the “ page height ” to be too large. As a matter of fact, since these are liner notes, the goal is for every two columns to form a rough square. My reference was 33 lines tall, somewhat loose line­‑spacing, not a lot of margin space, small, sans­‑serif font. I went for a slightly smaller page­‑size to ease readability on the screen.
+*/
+body {
+	Writing-Mode: Vertical-LR; /* Swaps inline and block axes, so that overflow still happens in the block direction */
+	Margin: 0 Auto;
+	Padding: 3EM 0;
+	Width: 100%;
+	Max-Width: 56EM;
+	Overflow: Auto;
+	Font: Normal Small / 1.5 Helvetica Neue, Sans-Serif;
+	White-Space: NoWrap;
+}
+article {
+	Position: Relative;
+	Writing-Mode: Horizontal-TB; /* Swaps back into horizontal writing for the actual content */
+	Padding: 1.5EM 3EM;
+	Height: Calc(100VW - 12EM);
+	Max-Height: 38EM;
+	Columns: 2 15EM;
+	Column-Gap: 3EM;
+	Column-Fill: Auto;
+	White-Space: Normal;
+	Text-Align: Justify;
+}
+article::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Left: 3EM;
+	Right: 53EM; /* Width will be 0PX when the content does not overflow */
+	Bottom: -1.5EM;
+	Overflow: Hidden;
+	Color: #75706A;
+	White-Space: Pre;
+	Text-Overflow: ""; /* Prevent an attempt at drawing characters in a 0PX space */
+	Content: "⟦ Scroll → ⟧"
+}
+h1 {
+	Margin: 0;
+	Font-Size: 1.5EM;
+	Font-Weight: 600;
+	Line-Height: 1;
+	Text-Transform: Uppercase;
+}
+h2 {
+	Margin: 1.2EM 0 0;
+	Font-Size: 1.25EM;
+	Font-Weight: 200;
+	Line-Height: 1.2;
+	Text-Transform: Uppercase;
+}
+h2:First-Child { Margin-Top: 0 }
+small { Font-Size: .75EM }
+h2 small {
+	Display: Inline-Block;
+	Font-Size: 1EM;
+	Text-Transform: None;
+}
+p {
+	Margin: 0;
+	Text-Indent: 2EM;
+}
+p>* { Text-Indent: 0 }
+hr {
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Background: Transparent;
+	Height: 1.5EM;
+}
+header { Margin: 0 0 1.5EM }
+section { Margin: 1.5EM 0 }
+footer {
+	Display: Block;
+	Font-Size: .625EM;
+	Line-Height: 1.2;
+	Text-Transform: Uppercase;
+}
+footer>p {
+	Margin: .75EM 0 0;
+	Text-Indent: 0;
+}
+*:Link,
+*:Visited { Color: Inherit }
+</style>
+
+<article>
+	<header>
+		<h1>Linernotes Style</h1>
+		<small>Last updated : <time datetime="2019-03-24">24 March 2019</time></small>
+	</header>
+
+	<p>This style is based off of album liner notes—specifically, <cite>Everythingʼs Beautiful</cite> by Miles Davis &amp; Robert Glasper was used as the inspiration. ( However, this design is pretty generic. ) A basic version of this style first appeared in <a href="https://www.u2764.com/page01.xhtml">page 01 of my journal</a>.
+	<p>Aside from the column layout, paragraphs, and headings, most things are left unstyled—this style is targeted towards text­‑heavy pages without a ton of markup. If you <em>do</em> need special styling for lists, tables, etc, youʼll need to add it yourself.
+	<p>By default, the stylesheet prefers the font <cite>Helvetica Neue</cite> ; if you donʼt like this choice, a sans­‑serif with at least thin, normal, and bold weights is ideal.
+
+	<section id="notes">
+		<h2>Notes</h2>
+		<p>This style scrolls in the horizontal, not vertical, direction, as this looks nicer in columned layouts. To make it clear ( on platforms like Apple which hide scrollbars ) that the page can be scrolled in that direction ( which people might not expect ), a little “⟦ Scroll → ⟧” popup will appear at the bottom of the page if the page overflows. Making this work properly requires the use of vertical writing modes ( to swap the inline and block directions ), which means <em>all</em> of a pageʼs content must be inside an <code>&lt;article></code> element, inside of the <code>&lt;body></code>, in order to ensure it displays correctly.
+	</section>
+
+	<footer>
+		<p>🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>.
+		<p><a href="../">Back to styles list</a>.
+	</footer>
+</article>
