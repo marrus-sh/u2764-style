@@ -2,25 +2,108 @@
 <html lang=en>
 <title>Style : \u2764</title>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,intial-scale=1"/>
+<style>
+body {
+	Margin: 0;
+	Padding: 8PX;
+}
+nav {
+	Display: Grid;
+	Grid-Template-Columns: Repeat(Auto-Fill, 256PX);
+	Grid-Gap: 16PX;
+	Gap: 16PX;
+	Justify-Content: Space-Around;
+	Margin: 0 -8PX;
+	Padding: 16PX;
+	Background: Black;
+}
+nav>ul { Display: Contents }
+nav>ul>li {
+	Display: Block;
+	Position: Relative;
+	Margin: 0;
+	Padding-Top: 192PX;
+	Background: White;
+	Overflow: Hidden;
+	Z-Index: 0;
+	Transition: Transform Ease-In-Out .2S;
+}
+nav>ul>li:Focus-Within { Transform: Scale(1.05) }
+nav>ul>li:Hover { Transform: Scale(1.1) }
+nav>ul>li>iframe {
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Left: Calc(50% - 128PX);
+	Margin: 0;
+	Border: None;
+	Width: 1024PX;
+	Height: 768PX;
+	Overflow: Hidden;
+	Transform: Scale(.25);
+	Transform-Origin: Top Left;
+	Z-Index: -1;
+}
+nav>ul>li>a[href] {
+	Display: Block;
+	Margin: -192PX 0 0;
+	Padding: Calc(192PX + .5EM) 0 .5EM;
+	Color: Inherit;
+	Font: Normal 1EM / 1 Sans-Serif;
+	Text-Align: Center;
+	Text-Decoration: None;
+}
+</style>
 
 <p>The following is a collection of various webpage designs which I have made that you can download and use. Many of these are from <a href="https://www.u2764.com/"><cite>Journal : \u2764</cite> </a>; some come from elsewhere. See the individual style pages for more information.
 <p>Styles are “ embedded ” ( included via a <code>&lt;style></code> element in the document header of each page ), and may not be entirely comprehensive ( ie, may not include styling information for tables, lists, figures ). You <em>should</em> modify them to suit your purposes and build on them to more fully encompass your needs. However, they should provide inspiration and potentially a starting­‑place for building text­‑based resources for the Web.
 <p>I use Firefox for developing but avoid using prefixed properties whenever possible. WebKit tends to have slightly buggier implementations of certain CSS things ; where I know of interoperability concerns I list them. Most styles are simple, responsive designs.
 <p>All designs are licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/"><cite>Creative Commons Attribution-ShareAlike 4.0 International</cite></a> licence ; feel free to use them so long as you attribute this webpage and ShareAlike.
 
-<ul>
-	<li><a href="./news/">News</a>
-	<li><a href="./news-vertical/">News‑Vertical</a>
-	<li><a href="./london/">London</a> <strong>( new ! )</strong>
-	<li><a href="./gohome/">GoHome</a> <strong>( new ! )</strong>
-	<li><a href="./fringewhite/">Fringe ( white )</a>
-	<li><a href="./fringeblack/">Fringe ( black )</a>
-	<li><a href="./journal/">Journal</a>
-	<li><a href="./amigabasic/">Amiga Basic</a>
-	<li><a href="./no/">No</a>
-	<li><a href="./elmek/">Elmek</a>
-	<li><a href="./linernotes/">Linernotes</a>
-	<li><a href="./transpop/">Transpop</a>
-	<li><a href="./manifesto/">Manifesto</a> <strong>( updated ! )</strong>
-	<li><a href="./tendency/">Tendency</a> <strong>( new ! )</strong>
+<nav>
+	<ul>
+		<li>
+			<iframe src="./news/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./news/">News</a>
+		<li>
+			<iframe src="./news-vertical/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./news-vertical/">News‑Vertical</a>
+		<li>
+			<iframe src="./london/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./london/">London <strong>( new ! )</strong></a>
+		<li>
+			<iframe src="./gohome/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./gohome/">GoHome <strong>( new ! )</strong></a>
+		<li>
+			<iframe src="./fringewhite/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./fringewhite/">Fringe ( white )</a>
+		<li>
+			<iframe src="./fringeblack/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./fringeblack/">Fringe ( black )</a>
+		<li>
+			<iframe src="./journal/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./journal/">Journal</a>
+		<li>
+			<iframe src="./amigabasic/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./amigabasic/">Amiga Basic</a>
+		<li>
+			<iframe src="./no/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./no/">No</a>
+		<li>
+			<iframe src="./elmek/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./elmek/">Elmek</a>
+		<li>
+			<iframe src="./linernotes/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./linernotes/">Linernotes</a>
+		<li>
+			<iframe src="./transpop/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./transpop/">Transpop</a>
+		<li>
+			<iframe src="./manifesto/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./manifesto/">Manifesto <strong>( updated ! )</strong></a>
+		<li>
+			<iframe src="./tendency/index.html" aria-hidden="true" sandbox="" tabindex="-1"></iframe>
+			<a href="./tendency/">Tendency <strong>( new ! )</strong></a>
+	</ul>
 </ul>
