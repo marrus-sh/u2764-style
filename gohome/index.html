@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>GoHome Style</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,intial-scale=1"/>
+
+<style>
+/* GLOBAL RULES */
+*:Root {
+	  Font-Family: "Cormorant Garamond", "Junicode", "Iowan Old Style", "Hoefler Text", Serif;
+	  Font-Size: Large;
+	  Font-Weight: 500;
+	  Font-Synthesis: None;
+	  Text-Align: Justify;
+	  Quotes: "“" "”" "‘" "’";
+}
+@media print {
+	*:Root {
+		Color: Black;
+		Background: White;
+		Font-Family: "Times New Roman", Serif;
+	}
+}
+*:Root:Root:Root:Root:Root [hidden] { Display: None }
+*[title]:Not([title=""]):Not(a) {
+	Border: None;
+	Text-Decoration: Dotted Underline;
+	Cursor: Help;
+}
+*:Lang(en) { Quotes: "“" "”" "‘" "’" }
+blockquote:Lang(en),
+blockquote *:Lang(en) { Quotes: "‘" "’" "“" "”" }
+
+/* PAGE */
+html {
+	Margin: 0;
+	Padding: 0;
+	Color: #57534C;
+	Background: #FAF8F7;
+}
+body {
+	Margin: 0;
+	Padding: 3.5REM 3REM;
+	Color: #57534C;
+	Background: #FAF8F7;
+}
+body>header,
+body>a[href]>header {
+	Display: Flex;
+	Flex-Direction: Row;
+	Justify-Content: Flex-End;
+	Align-Items: Flex-End;
+	Position: Relative;
+	Margin: 0 Auto;
+	Padding: 0;
+	Max-Width: 28REM;
+	Font-Family: "Catamaran", Sans-Serif;
+	Z-Index: 100;
+}
+@media (Min-Width: 57REM) {
+	body>header,
+	body>a[href]>header {
+		Float: Left;
+		Margin: 0 1REM;
+		Height: 18.9REM;
+	}
+}
+body>header h1,
+body>a[href]>header h1 {
+	Display: Block;
+	Flex: Auto;
+	Margin: 0;
+	Padding: 0;
+	Font-Size: 5EM;
+	Font-Weight: 800;
+	Line-Height: 1;
+}
+body>header aside,
+body>a[href]>header aside {
+	Display: Block;
+	Writing-Mode: Vertical-LR;
+	Flex: None;
+	Margin: 0 0 1REM .75REM;
+	Padding: 0;
+	Width: 1.25REM;
+	Overflow: Hidden;
+	Font-Weight: 100;
+	Line-Height: 1.25;
+	Text-Overflow: Ellipsis;
+}
+body>header p,
+body>a[href]>header p {
+	Margin: 0;
+	Padding: 0;
+	Text-Indent: 0;
+}
+body>header p::BEFORE,
+body>a[href]>header p::BEFORE { Content: None }
+body>header a[href],
+body>header a[href]:Hover,
+body>a[href] { Color: Inherit }
+
+/*  SECTIONING  */
+article,
+section,
+aside,
+header,
+footer,
+div {
+	Display: Block;
+	Margin: 0;
+	Padding: 0;
+}
+nav { Margin: .675REM 1REM }
+aside {
+	Margin: .3375REM 0;
+	Border: Thick #B8B3B0 Double;
+	Padding: .3375REM 1REM;
+	Overflow: Auto;
+	Color: #75706A;
+	Text-Align: Left;
+}
+header aside,
+footer {
+	Margin: .3375REM 0;
+	Border: None;
+	Padding: 0;
+}
+header aside { Font-Size: .85EM }
+footer {
+	Color: #75706A;
+	Font: 100 .85EM / 1.25 "Catamaran", Sans-Serif;
+	Text-Align: Right;
+}
+blockquote>footer:Last-Child {
+	Color: Inherit;
+	Font: Inherit;
+}
+blockquote>footer:Last-Child::BEFORE { Content: "– " }
+header { Text-Align: Left }
+main {
+	Display: Block;
+	Position: Relative;
+	Margin: 1REM Auto 0;
+	Padding: 0 0 2.7REM;
+	Max-Width: 28REM;
+	Hyphens: Auto;
+}
+@media (Min-Width: 57REM) {
+	main { Padding-Left: 25% }
+}
+nav { Text-Align: Center }
+article:Not(:First-Child),
+section:Not(:First-Child) { Margin-Top: 2.7REM }
+article:Not(:Last-Child),
+section:Not(:Last-Child) { Margin-Bottom: 2.7REM }
+
+/*  TABLES  */
+caption {
+	Margin: 0;
+	Padding: .3375REM .25REM;
+}
+table {
+	Margin: .675REM Auto;
+	Border-Collapse: Separate;
+	Padding: 0;
+	Max-Width: 100%;
+	Text-Align: Left;
+}
+thead {
+	Font-Weight: 700;
+	Text-Align: Center;
+}
+tbody+tbody::BEFORE {
+	Display: Table-Row;
+	Height: .675REM;
+	Content: "";
+}
+td>table:Only-Child {
+	Margin: Auto;
+	Width: 100%;
+}
+td,
+th {
+	Border: None;
+	Border-Radius: .125EM;
+	Padding: .125EM;
+	Vertical-Align: Top;
+}
+th {
+	Text-Align: Center;
+	Text-Decoration: Underline;
+}
+
+/*  LISTS  */
+ul,
+ol,
+dl {
+	Margin: .3375EM 0;
+	Padding: 0 0 0 2REM;
+	Overflow: Auto;
+	Text-Align: Left;
+}
+ul { List-Style-Type: Circle }
+li ul { List-Style-Type: Square }
+li li ul { List-Style-Type: Disc }
+li li li ul { List-Style-Type: Circle }
+li li li li ul { List-Style-Type: Square }
+ol { List-Style-Type: Upper-Roman }
+li ol { List-Style-Type: Decimal-Leading-Zero }
+li li ol { List-Style-Type: Lower-Latin }
+li li li ol { List-Style-Type: Lower-Greek }
+li li li li ol { List-Style-Type: Decimal }
+dt {
+	Display: Inline-Block;
+	Float: Left;
+	Margin: 0 -.25REM;
+	Padding: 0 .25REM;
+	Font-Weight: Bold;
+}
+dt+dt::BEFORE { Content: ", " }
+dd {
+	Margin: 0 0 0 2REM;
+	Padding: 0;
+}
+dd::BEFORE {
+	Display: Inline;
+	White-Space: Pre-Wrap;
+	Content: " : ";
+}
+dd + dd::BEFORE { Content: "″ : " }
+dd::AFTER {
+	Display: Block;
+	Clear: Both;
+	Margin: 0;
+	Padding: 0;
+	Content: "";
+}
+
+/*  BLOCK ELEMENTS  */
+blockquote {
+	Position: Relative;
+	Margin: .675REM 0;
+	Padding: 0 2REM;
+	Overflow: Auto;
+	Font-Style: Italic;
+	Font-Weight: 300;
+}
+blockquote::BEFORE,
+blockquote::AFTER {
+	Font: 800 2EM / 1 "Catamaran", Sans-Serif;
+	Text-Align: Center;
+}
+blockquote::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Top: .3375REM;
+	Left: 0;
+	Width: 2REM;
+	Content: "“";
+}
+blockquote::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Bottom: .3375REM;
+	Right: 0;
+	Width: 2REM;
+	Content: "„";
+}
+blockquote blockquote {
+	Margin: .675REM 0;
+	Padding: 0 1REM 0 Calc(1REM - 1PX);
+	Border-Left: 1PX CurrentColor Solid;
+}
+blockquote blockquote::BEFORE,
+blockquote blockquote::AFTER { Content: None }
+figcaption {
+	Margin: .3375REM 0;
+	Font: 100 .85EM / 1.25 "Catamaran", Sans-Serif;
+	Text-Align: Center;
+}
+figure,
+iframe,
+img,
+svg,
+video {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Max-Width: 100%;
+}
+main figure,
+main iframe,
+main img,
+main svg,
+main video {
+	Margin: Auto;
+	Width: -moz-Fit-Content;
+	Width: Fit-Content;
+}
+figure,
+main figure { Margin: .675REM Auto }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	Color: #1f1a14;
+	Font: 800 1EM / 1 "Catamaran", Sans-Serif;
+}
+h1 {
+	Margin: 1.35REM 0;
+	Font-Size: 5EM;
+}
+h2 {
+	Margin: 2.7REM 0 2.025REM;
+	Font-Size: 3.5EM;
+}
+h3 {
+	Margin: 2.7REM 0 .675REM;
+	Font-Size: 1.75EM;
+}
+h4 {
+	Margin: 1.35REM 0 .675REM;
+	Font-Size: 1.4EM;
+	Line-Height: 1.25;
+}
+h5 {
+	Margin: .675REM 0;
+	Font-Variant: Small-Caps;
+	Line-Height: Inherit;
+}
+h6 {
+	Margin: .675REM 0;
+	Line-Height: Inherit;
+}
+hr {
+	Display: Block;
+	Position: Relative;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Width: 100%;
+	Height: 4.05REM;
+	Color: Inherit;
+	Background: None;
+	Overflow: Hidden;
+	Text-Align: Center;
+}
+hr::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Top: 1.35REM;
+	Left: 0;
+	Right: 0;
+	Height: 1.35REM;
+	White-Space: Pre;
+	Content: "*   *   *";
+}
+iframe[src*="//youtube.com/embed/"],
+iframe[src*="//www.youtube.com/embed/"] {
+	Width: 560PX;
+	Height: 315PX;
+}
+img.INLINE,
+svg.INLINE {
+	Display: Inline-Block;
+	Margin: 0;
+	Padding: Calc(.25EM / 1.5);
+	Max-Height: Calc(1EM / 1.5);
+	Max-Width: Calc(1EM / 1.5);
+	Vertical-Align: Middle;
+}
+p {
+	Position: Relative;
+	Margin: 0;
+	Text-Align: Justify;
+}
+footer h4+p,
+footer h5+p,
+footer h6+p,
+footer p+p { Margin-Top: .675REM }
+h4+p::BEFORE,
+h5+p::BEFORE,
+h6+p::BEFORE,
+p+p::BEFORE {
+	Display: Inline-Block;
+	Margin: 0 .25EM 0 .5EM;
+	Color: #B8B3B0;
+	Line-Height: 1;
+	Content: "¶";
+}
+footer h4+p::BEFORE,
+footer h5+p::BEFORE,
+footer h6+p::BEFORE,
+footer p+p::BEFORE { Content: None }
+pre {
+	Margin: .675REM 1REM;
+	Font: Normal .85EM / 1 "Unifont LANGDEV", "Unifont Upper", "Unifont", Monospace;
+	White-Space: Pre-Wrap;
+	Hyphens: None;
+}
+pre::BEFORE,
+pre::AFTER {
+	Display: Block;
+	Margin: 0 -1REM;
+	Content: "```";
+}
+svg { Color: Inherit }
+
+/*  PHRASING  */
+a[href] {
+	Color: Inherit;
+	Text-Decoration: None; /* Donʼt worry, this will be overriden for `main` links down below */
+	Text-Decoration-Color: Inherit;
+	Transition: Color .3S, Text-Decoration-Color .3S;
+}
+a[href]:Hover {
+	Color: #302F2B;
+	Text-Decoration-Color: Transparent;
+}
+main a[href] {
+	Display: Inline;
+	Text-Decoration: Dashed Underline;
+}
+header a[href],
+nav a[href] { Text-Decoration: None }
+@media print {
+	a[href]::AFTER { Content: " [" Attr(href) "]" }
+}
+b {
+	Color: #302F2B;
+	Font-Weight: 700;
+}
+cite { Font-Style: Italic }
+code, samp, kbd {
+	Font-Size: .85EM;
+	Font-Family: "Unifont LANGDEV", "Unifont Upper", "Unifont", Monospace;
+	Line-Height: 1;
+	Hyphens: None;
+}
+code { Color: #1F1A14 }
+del {
+	Color: #948D87;
+	Text-Decoration: Line-Through;
+}
+dfn {
+	Font-Style: Inherit;
+	Font-Weight: 700;
+}
+em {
+	Font-Style: Inherit;
+	Text-Decoration: Underline;
+}
+i,
+u { Color: #302F2B }
+aside i,
+aside u { Color: #57534C }
+i { Font-Style: Italic }
+blockquote i { Font-Style: Normal }
+footer i,
+figcaption i,
+h1 i,
+h2 i,
+h3 i,
+h4 i,
+h5 i,
+h6 i { Font-Style: Inherit }
+footer i::BEFORE,
+figcaption i::BEFORE,
+h1 i::BEFORE,
+h2 i::BEFORE,
+h3 i::BEFORE,
+h4 i::BEFORE,
+h5 i::BEFORE,
+h6 i::BEFORE { Content: No-Open-Quote Open-Quote }
+footer i::AFTER,
+figcaption i::AFTER,
+h1 i::AFTER,
+h2 i::AFTER,
+h3 i::AFTER,
+h4 i::AFTER,
+h5 i::AFTER,
+h6 i::AFTER { Content: Close-Quote No-Close-Quote }
+ins { Text-Decoration: Underline }
+s { Text-Decoration: Line-Through }
+small {
+	Color: #948D87;
+	Font-Size: Inherit;
+}
+strong {
+	Color: #1F1A14;
+	Text-Decoration: Double Underline;
+	Font-Weight: 700;
+}
+sup {
+	Text-Transform: Uppercase;
+	Line-Height: 0;
+}
+u { Text-Decoration: Wavy Underline }
+</style>
+
+<header>
+	<h1>Go­Home Style</h1>
+	<aside>
+		<p>Last updated : <time datetime="2019-04-07">07 April 2019</time>
+	</aside>
+</header>
+
+<main>
+	<p>This style was used for <a href="http://marrus.xyz/" rel="noopener noreferrer">my old website</a> ; the initial design was committed on <time datetime="2017-03-06">06 March 2017</time>, with final edits beïng made on <time datetime="2017-09-14">14 September</time> of that year.
+	<p>The expected page style is one like the following :
+	<pre>&lt;header>
+	&lt;h1>Site Title&lt;/h1>
+	&lt;aside>Spash quote ( optional )&lt;/aside>
+&lt;/header>
+&lt;main>
+	&lt;!-- Site content -->
+&lt;/main></pre>
+	<p>The preferred fonts are <a href="https://github.com/VanillaandCream/Catamaran-Tamil"><cite>Catamaran</cite></a> and <a href="https://github.com/CatharsisFonts/Cormorant"><cite>Cormorant Garamond</cite></a> ; otherwise a sans­‑serif ( italics not required ) with weights of { 100, 800 } and a serif ( with italics ) with weights of { 300, 500, 700 } are ideal. It looks fine with default fonts though.
+	<footer>
+		🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+	</footer>
+</main>
