@@ -10,10 +10,10 @@ body {
 }
 nav {
 	Display: Grid;
-	Grid-Template-Columns: Repeat(Auto-Fill, 256PX);
+	Grid-Template-Columns: Repeat(Auto-Fill, MinMax(256PX, Auto));
 	Grid-Gap: 16PX;
 	Gap: 16PX;
-	Justify-Content: Space-Around;
+	Justify-Content: Center;
 	Margin: 0 -8PX;
 	Padding: 16PX;
 	Background: Black;
@@ -23,8 +23,9 @@ nav>ul>li {
 	Display: Block;
 	Position: Relative;
 	Margin: 0;
+	Width: 384PX;
+	Max-Width: 100%;
 	Padding-Top: 192PX;
-	Background: White;
 	Overflow: Hidden;
 	Z-Index: 0;
 	Transition: Transform Ease-In-Out .2S;
@@ -48,11 +49,18 @@ nav>ul>li>iframe {
 nav>ul>li>a[href] {
 	Display: Block;
 	Margin: -192PX 0 0;
-	Padding: Calc(192PX + .5EM) 0 .5EM;
+	Padding: 192PX 0 0;
 	Color: Inherit;
+	Background: Content-Box Gainsboro;
 	Font: Normal 1EM / 1 Sans-Serif;
 	Text-Align: Center;
 	Text-Decoration: None;
+}
+nav>ul>li>a[href]::BEFORE,
+nav>ul>li>a[href]::AFTER {
+	Display: Block;
+	Height: .5EM;
+	Content: "";
 }
 </style>
 
