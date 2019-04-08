@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>London Style</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,intial-scale=1"/>
+
+<style>
+/*  GLOBAL RULES  */
+*:Root {
+	Font: Normal Medium / 1.5 "M+ 1c", Sans-Serif;
+	Font-Synthesis: None;
+	Text-Align: Justify;
+	Quotes: "‘" "’" "“" "”";
+}
+@media print {
+	*:Root {
+		Color: Black;
+		Background: White;
+		Font-Family: "Times New Roman", Serif;
+	}
+}
+*[title]:Not([title=""]):Not(a) {
+	Border: None;
+	Text-Decoration: Dotted Underline;
+	Cursor: Help;
+}
+*:Lang(en) { Quotes: "‘" "’" "“" "”" }
+*:Root:Root:Root:Root:Root [hidden] { Display: None }
+
+/*  PAGE LAYOUT  */
+html {
+	Margin: 0;
+	Padding: 0;
+	Min-Height: Calc(100VH - 3.5REM);
+	Color: #F30;
+	Background: #114;
+}
+body {
+	Margin: Auto;
+	Padding: 1.75REM 1REM;
+	Max-Width: 30.25REM;
+}
+
+/*  SECTIONING  */
+main {
+	Display: Block;
+	Position: Relative;
+	Padding-Bottom: 7REM;
+}
+article,
+section,
+aside,
+header,
+footer,
+div {
+	Display: Block;
+	Clear: Both;
+	Margin: 0;
+	Padding: 0;
+}
+article {
+	Margin: 0 -2.5REM;
+	Padding: .4375REM 2.5REM;
+	Color: #114;
+	Background: #EDE;
+	Border-Radius: .4375REM;
+	Font-Size: Calc(11REM / 12);
+	Font-Weight: 400;
+}
+aside,
+section { Margin: 1.75REM 0 }
+aside { Color: #A20 }
+header {
+	Margin: 1.75REM 0 .875REM;
+	Font-Family: "M+ 2p", Sans-Serif;
+	Font-Weight: 700;
+	Text-Transform: Uppercase;
+}
+body>header {
+	Display: Flex;
+	Flex-Direction: Row;
+	Align-Items: Center;
+	Justify-Content: Space-Around;
+	Margin: 3.5REM -2REM 6.125REM;
+}
+nav {
+	Display: Block;
+	Text-Align: Left;
+}
+main nav { Text-Align: Center }
+footer {
+	Margin: .4375REM 0;
+	Color: #A20;
+	Font-Size: Calc(10REM / 12);
+	Text-Align: Right;
+}
+blockquote>footer:Last-Child::BEFORE { Content: "– " }
+
+/*  TABLES  */
+caption {
+    Margin: 0;
+    Padding: .4375REM .25REM;
+}
+table {
+	Margin: 1.75REM Auto;
+	Border-Collapse: Separate;
+	Padding: 0;
+	Max-Width: 100%;
+	Text-Align: Left;
+}
+thead {
+	Font-Weight: 400;
+	Text-Align: Center;
+}
+tbody+tbody::BEFORE {
+	Display: Table-Row;
+	Height: 1.75REM;
+	Content: "";
+}
+td>table:Only-Child {
+	Margin: Auto;
+	Width: 100%;
+}
+td,
+th {
+	Border: None;
+	Border-Radius: .125REM;
+	Padding: .125REM;
+	Vertical-Align: Top;
+}
+
+th {
+	Text-Align: Center;
+	Text-Decoration: Underline;
+}
+
+/*  LISTS  */
+ul,
+ol,
+dl {
+    Margin: .4375REM 0;
+    Padding: 0 0 0 2REM;
+    Text-Align: Left;
+}
+ul { List-Style-Type: Circle }
+li ul { List-Style-Type: Square }
+li li ul { List-Style-Type: Disc }
+li li li ul { List-Style-Type: Circle }
+li li li li ul { List-Style-Type: Square }
+ol { List-Style-Type: Upper-Roman }
+li ol { List-Style-Type: Decimal-Leading-Zero }
+li li ol { List-Style-Type: Lower-Latin }
+li li li ol { List-Style-Type: Lower-Greek }
+li li li li ol { List-Style-Type: Decimal }
+dt {
+	Display: Inline-Block;
+	Float: Left;
+	Margin: 0 -.25REM;
+	Padding: 0 .25REM;
+	Color: #114;
+	Background: #A20;
+}
+dt + dt::BEFORE { Content: ", " }
+dd {
+	Margin: 0 0 0 2REM;
+	Padding: 0;
+}
+dd::BEFORE {
+	Display: Inline;
+	White-Space: Pre-Wrap;
+	Content: " : ";
+}
+dd+dd::BEFORE { Content: "″ : " }
+dd::AFTER {
+	Display: Block;
+	Clear: Both;
+	Margin: 0;
+	Padding: 0;
+	Content: "";
+}
+
+/*  BLOCK ELEMENTS  */
+blockquote {
+    Position: Relative;
+    Margin: 1.75REM 0;
+    Padding: 0 2REM;
+    Color: #F30;
+}
+
+blockquote::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Top: .4375REM;
+	Left: 0;
+	Width: 2REM;
+	Font: 800 2REM / 1 "M+ 2p", Sans-Serif;
+	Text-Align: Center;
+	Content: "“";
+}
+blockquote::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Bottom: .4375REM;
+	Right: 0;
+	Width: 2REM;
+	Font: 800 2REM / 1 "M+ 2p", Sans-Serif;
+	Text-Align: Center;
+	Content: "„";
+}
+blockquote blockquote {
+	Margin: .875REM 0;
+	Padding: 0 1REM 0 Calc(1REM - 1PX);
+	Border-Left: 1PX CurrentColor Solid;
+	Font-Weight: 200;
+}
+blockquote blockquote::BEFORE,
+blockquote blockquote::AFTER { Content: None }
+figcaption {
+	Margin: .4375REM 0;
+	Color: #A20;
+	Font-Size: Calc(10REM / 12);
+	Text-Align: Center;
+}
+figure,
+iframe,
+img,
+svg,
+video {
+	Display: Block;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Max-Width: 100%;
+	Color: Inherit;
+}
+main figure,
+main iframe,
+main img,
+main svg,
+main video {
+    Margin: Auto;
+    Width: -moz-Fit-Content;
+    Width: Fit-Content;
+}
+figure,
+main figure { Margin: 1.75REM Auto }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	Font-Family: "M+ 2p", Sans-Serif;
+	Text-Align: Left;
+}
+h1 {
+	Display: Inline-Block;
+	Flex: None;
+	Margin: 0 2REM;
+	Padding: 1.75REM 1REM;
+	Color: #F30;
+	Background: Transparent;
+	Font-Size: 4REM;
+	Font-Weight: 900;
+	Line-Height: 1;
+	Text-Align: Left;
+	Text-Transform: Uppercase;
+}
+h2 {
+	Margin: 1.75REM 0 .875REM;
+	Font-Size: 2REM;
+	Font-Weight: 900;
+	Line-Height: 1.09375;
+	Text-Align: Left;
+}
+header h2 { Margin: 0 }
+h3 {
+    Margin: 1.75REM 0 0;
+    Font-Size: 1.75REM;
+    Font-Weight: 800;
+    Line-Height: 1;
+}
+h3::AFTER { Content: ":" }
+h4 {
+	Margin: 1.75REM 0 0;
+	Font-Size: Inherit;
+	Font-Weight: 800;
+	Text-Decoration: Underline;
+}
+h5 {
+	Margin: .875REM 0 0;
+	Font-Size: Inherit;
+	Font-Weight: 700;
+}
+h6 {
+	Margin: 0;
+	Font-Size: Inherit;
+	Font-Weight: 700;
+}
+hr {
+	Display: Block;
+	Position: Relative;
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Width: 100%;
+	Height: 5.25REM;
+	Background: None;
+	Overflow: Hidden;
+}
+hr::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Top: 1.75REM;
+	Left: 0;
+	Right: 0;
+	Height: 1.75REM;
+	Color: #A20;
+	Text-Align: Center;
+	White-Space: Pre;
+	Content: "*   *   *";
+}
+iframe[src*="//youtube.com/embed/"],
+iframe[src*="//www.youtube.com/embed/"] {
+	Width: 560PX;
+	Height: 315PX;
+}
+img.INLINE,
+svg.INLINE {
+	Display: Inline-Block;
+	Margin: 0;
+	Padding: Calc(.25EM / 1.5);
+	Max-Height: Calc(1EM / 1.5);
+	Max-Width: Calc(1EM / 1.5);
+	Line-Height: 1EM;
+	Vertical-Align: Middle;
+}
+p {
+    Position: Relative;
+    Margin: 0;
+    Padding: 0;
+}
+h3+p,
+p+p { Text-Indent: 2REM }
+footer h3+p,
+footer p+p {
+    Margin-Top: 5.25REM;
+    Text-Indent: 0;
+}
+p::BEFORE {
+    Color: #810;
+    Text-Indent: 0;
+}
+h3+p::BEFORE,
+p+p::BEFORE {
+	Position: Absolute;
+	Top: 0;
+	Left: 1REM;
+	Content: "¶";
+}
+blockquote p::BEFORE,
+blockquote p+p::BEFORE {
+	Position: Absolute;
+	Top: 0;
+	Left: Auto;
+	Right: 100%;
+	Content: Open-Quote;
+}
+blockquote p:Not(:Last-Of-Type)::AFTER { Content: No-Close-Quote }
+blockquote p:Last-Of-Type::AFTER { Content: Close-Quote }
+footer h3+p::BEFORE,
+footer p+p::BEFORE { Content: None }
+pre {
+	Margin: 1.75REM 1REM;
+	Font-Family: "Unifont LANGDEV", "Unifont Upper", "Unifont", Monospace;
+	Font-Weight: Normal;
+	Color: #EDE;
+	White-Space: Pre-Wrap;
+}
+pre::BEFORE,
+pre::AFTER {
+	Display: Block;
+	Margin: 0 -1REM;
+	Color: #810;
+	Content: "```";
+}
+article pre { Color: #F30 }
+
+/*  PHRASING  */
+a[href] {
+	Text-Decoration: None;
+	Color: Inherit;
+	Transition: Color .3s;
+}
+a[href]:Hover { Color: #EDE }
+article a[href] { Color: #A20 }
+article a[href]:Hover { Color: #F30 }
+main a[href] {
+	Text-Decoration: Underline;
+	Text-Decoration-Style: Dashed;
+}
+nav a[href] { Text-Decoration: None }
+@media print {
+    a[href]::AFTER { Content: " [" Attr(href) "]" }
+}
+b {
+    Font-Weight: 500;
+    Color: #EDE;
+}
+article b,
+article code,
+article i { Color: #F30 }
+cite { Font-Style: Inherit }
+code {
+	Font-Family: Inherit;
+	Color: #EDE;
+}
+del { Text-Decoration: Line-Through }
+dfn {
+	Font-Style: Inherit;
+	Font-Weight: 500;
+}
+em {
+	Font-Style: Inherit;
+	Text-Decoration: Underline;
+}
+i {
+	Font-Style: Inherit;
+	Font-Weight: 300;
+	Color: #EDE;
+}
+h1 i,
+h2 i { Font-Weight: 800 }
+h3 i,
+h4 i,
+h5 i,
+h6 i { Font-Weight: 700 }
+i::BEFORE,
+i::AFTER { Content: "'" }
+ins { Text-Decoration: Underline }
+s { Text-Decoration: Line-Through }
+small {
+    Font-Size: Inherit;
+    Font-Weight: 200;
+}
+strong {
+    Text-Decoration: Underline;
+    Text-Decoration-Style: Double;
+    Font-Weight: 700;
+}
+sup { Text-Transform: Uppercase }
+h1 sub {
+    Font-Size: 2REM;
+    Line-Height: 0;
+    Color: #EDE;
+}
+u {
+    Text-Decoration: Underline;
+    Text-Decoration-Style: Wavy;
+}
+</style>
+
+<header>
+	<h1><a href="../">Style<sub>\u2764</sub></a></h1>
+	<nav>
+		<a href="../">Home</a> |
+		<a href="./">London</a>
+	</nav>
+</header>
+
+<main>
+	<article>
+		<h2>London Style</h2>
+		<aside>
+			<p>Last updated : <time datetime="2019-04-07">07 April 2019</time>
+		</aside>
+		<p>This style was used for <a href="http://marrus.xyz/" rel="noopener noreferrer">my old website</a> <em>prior</em> to its redesign as <a href="../gohome/">GoHome</a> ; the initial design was committed on <time datetime="2016-09-13">13 September 2016</time>, with final edits beïng made on <time datetime="2016-10-20">20 October</time> of that year.
+		<p>The expected page style is one like the following :
+		<pre>&lt;header>
+	&lt;h1>Site Title&lt;/h1>
+	&lt;nav>&lt;!-- Navigational links -->&lt;/nav>
+&lt;/header>
+&lt;main>
+	&lt;!-- Site content -->
+&lt;/main></pre>
+		<p>Longform content should be wrapped an <code>&lt;article></code> tag ; non­‑<code>&lt;article></code> content will be displayed in a bold red­‑on­‑navy style. This looks good for short pages or galleries but is much less readable.
+		<p>The preferred fonts are <a href="http://mplus-fonts.osdn.jp/about-en.html"><cite>M+ 1c</cite> and <cite>M+ 2p</cite></a>, although any sans­‑serif ( italics not required ) with weights of { 200, 300, 400, 500, 700 } ( for body text ) and { 700, 800, 900 } ( for headings ) will work. Italics are not required.
+		<footer>
+			🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+		</footer>
+	</article>
+</main>
