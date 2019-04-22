@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Notebook Style</title>
+<meta charset="UTF-8" />
+
+<style>
+/* SECTIONING */
+article {
+	Margin: 0 Calc(30% - 2REM);
+	Padding: 0 2REM;
+	Border-Style: None Solid;
+	Border-Color: #4B2DF7;
+	Border-Width: Thin;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Counter-Reset: Note;
+}
+article::AFTER,
+section::AFTER {
+	Display: Block;
+	Content: "";
+}
+article,
+article::AFTER,
+article>*,
+section::AFTER { Clear: Both }
+article>* {
+	Display: Block;
+	Position: Relative;
+	Border-Style: Double None;
+	Border-Width: Medium;
+	Padding: 2REM;
+	Min-Height: 3REM;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Z-Index: 1;
+}
+article>section+* { Margin-Top: -3REM }
+article>*:First-Child,
+article>*:Not(section)+* { Border-Top-Style: None }
+article>*:Last-Child { Border-Bottom-Style: None }
+article>header,
+article>footer,
+article>nav,
+article>aside {
+	Margin: 0 -75%;
+	Background: Fixed Linear-Gradient(
+		45DEG,
+		#FAF8F7 .35REM,
+		Transparent .35REM,
+		Transparent 1.06REM,
+		#FAF8F7 1.06REM
+	) Top Left / 1REM 1REM, Fixed Linear-Gradient(
+		-45DEG,
+		#FAF8F7 Calc(.5REM - .82PX),
+		#302F2B Calc(.5REM - .6PX),
+		#302F2B Calc(.5REM + .6PX),
+		#FAF8F7 Calc(.5REM + .82PX)
+	) Top Left / 1REM 1REM, #FAF8F7;
+}
+article>nav {
+	Display: Grid;
+	Border-Color: #FAF8F7;
+	Padding: 1REM Calc(75% - 4.4REM) 1REM;
+	Grid-Template-Columns: 1FR 1FR 1FR;
+	Grid-Gap: 1REM;
+	Gap: 1REM;
+	Align-Items: Center;
+	Justify-Items: Center;
+	Background: Fixed Linear-Gradient(
+		45DEG,
+		#302F2B .35REM,
+		Transparent .35REM,
+		Transparent 1.06REM,
+		#302F2B 1.06REM
+	) Top Left / 1REM 1REM, Fixed Linear-Gradient(
+		-45DEG,
+		#302F2B Calc(.5REM - .82PX),
+		#FAF8F7 Calc(.5REM - .6PX),
+		#FAF8F7 Calc(.5REM + .6PX),
+		#302F2B Calc(.5REM + .82PX)
+	) Top Left / 1REM 1REM, #302F2B;
+}
+*:Root article>nav>ol,
+*:Root article>nav>ul { Display: Contents }
+article>nav>*,
+article>nav>ol>*,
+article>nav>ul>* {
+	Display: Block;
+	Grid-Column: 1 / Span 3;
+	Box-Sizing: Border-Box ! IMPORTANT;
+	Margin: Auto;
+	Padding: .5EM 1EM;
+	Width: 100%;
+	Height: Auto;
+	Max-Width: 100% ! IMPORTANT;
+	Overflow: Hidden ! IMPORTANT;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+}
+article>nav>ol>*,
+article>nav>ul>* {
+	Grid-Column: Auto;
+	Border: Medium Double;
+	Width: Auto;
+}
+article>nav>ol:Only-Of-Type>*:Only-Child,
+article>nav>ul:Only-Of-Type>*:Only-Child { Grid-Column: 2 }
+article>nav>ol>*>a[href],
+article>nav>ul>*>a[href] {
+	Display: Block;
+	Overflow: Hidden;
+	Color: Inherit;
+	White-Space: NoWrap;
+	Text-Overflow: Ellipsis;
+}
+article>aside {
+	Border-Color: #B01C1C;
+	Background: Fixed Linear-Gradient(
+		45DEG,
+		#FAF8F7 .35REM,
+		Transparent .35REM,
+		Transparent 1.06REM,
+		#FAF8F7 1.06REM
+	) Top Left / 1REM 1REM, Fixed Linear-Gradient(
+		-45DEG,
+		#FAF8F7 Calc(.5REM - .82PX),
+		#B01C1C Calc(.5REM - .6PX),
+		#B01C1C Calc(.5REM + .6PX),
+		#FAF8F7 Calc(.5REM + .82PX)
+	) Top Left / 1REM 1REM, #FAF8F7;
+}
+article>section {
+	Border: None;
+	Padding: 0;
+	Background: No-Repeat Space Content-Box Radial-Gradient(
+		Circle At Center,
+		Transparent Calc(.05REM - .25PT),
+		#B01C1C Calc(.05REM + .25PT),
+		#B01C1C Calc(.125REM - .25PT),
+		Transparent Calc(.125REM + .25PT)
+	) Top Center / 1REM 1REM, #FAF8F7;
+	Z-Index: 0;
+}
+article>section::BEFORE,
+article>section::AFTER {
+	Display: Block;
+	Position: Relative;
+	Margin-Bottom: -6REM;
+	Height: 6REM;
+	Z-Index: -1;
+	Content: "";
+}
+article>section::BEFORE {
+	Background: Linear-Gradient(
+		To Top,
+		Transparent,
+		#FAF8F7 1REM
+	);
+}
+article>section::AFTER {
+	Bottom: 3REM;
+	Background: Linear-Gradient(
+		To Bottom,
+		Transparent,
+		#FAF8F7 1REM
+	);
+}
+article>section:Last-Child::AFTER {
+	Bottom: 0;
+	Margin-Bottom: 0;
+	Height: 3REM;
+}
+article>*>h2:First-Child {
+	Margin: -1REM -75% 0;
+	Border-Style: Solid None;
+	Border-Color: Transparent;
+	Border-Width: 1REM;
+	Padding: 1REM Calc(75% - 2REM) 1REM;
+	Box-Shadow: Inset 0 0 0 1PX #1F1A14;
+	Background: Fixed Linear-Gradient(
+		45DEG,
+		#FAF8F7 .35REM,
+		Transparent .35REM,
+		Transparent 1.06REM,
+		#FAF8F7 1.06REM
+	) Top Left / 1REM 1REM, Fixed Linear-Gradient(
+		-45DEG,
+		#FAF8F7 Calc(.5REM - .82PX),
+		#DEDBD9 Calc(.5REM - .6PX),
+		#DEDBD9 Calc(.5REM + .6PX),
+		#FAF8F7 Calc(.5REM + .82PX)
+	) Top Left / 1REM 1REM, #FAF8F7;
+	Box-Shadow: Inset 0 1PX #1F1A14, Inset 0 -1PX #1F1A14;
+	Mask: Alpha Intersect Linear-Gradient(
+		To Bottom,
+		Transparent,
+		White 1REM
+	) Top, Alpha Linear-Gradient(
+		To Top,
+		Transparent,
+		White 1REM
+	) Bottom;
+}
+article>header>h2:First-Child,
+article>footer>h2:First-Child,
+article>aside>h2:First-Child {
+	Margin: -1REM 0 0;
+	Padding: 1REM 2REM;
+}
+article>nav>h2:First-Child {
+	Margin: 0;
+	Border-Style: None;
+	Padding: 1REM 2REM;
+	Box-Shadow: None;
+	Mask: None;
+}
+article>*>h2:Only-Child { Margin-Bottom: -1REM }
+article>aside>h2:First-Child { Box-Shadow: Inset 0 0 0 1PX #B01C1C }
+article>section>h2:First-Child {
+	Margin-Top: 0;
+	Border-Top-Style: None;
+	Box-Shadow: Inset 0 -1PX 0 0 #1F1A14;
+	Mask: Alpha Linear-Gradient(
+		To Top,
+		Transparent,
+		White 1REM
+	) Bottom;
+}
+article>section+section>h2:First-Child {
+	Bottom: 1REM;
+	Margin-Bottom: -1REM;
+	Border-Top-Style: Solid;
+	Box-Shadow: Inset 0 1PX #1F1A14, Inset 0 -1PX #1F1A14;
+	Mask: Alpha Intersect Linear-Gradient(
+		To Bottom,
+		Transparent,
+		White 1REM
+	) Top, Alpha Linear-Gradient(
+		To Top,
+		Transparent,
+		White 1REM
+	) Bottom;
+}
+article>section>* {
+	Display: Block;
+	Margin: 0 Auto;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+}
+article>section>h2:First-Child+* {
+	Margin-Top: -2REM;
+	Padding-Top: 2REM;
+}
+article>section+section>h2:First-Child+* { Margin-Top: -3REM }
+article>section p:Last-Child {
+	Padding-Bottom: 3REM;
+	Background: No-Repeat Linear-Gradient(
+		To Bottom,
+		#FAF8F7 2REM,
+		Transparent 2REM
+	), No-Repeat Radial-Gradient(
+		Circle At Center,
+		#FAF8F7 Calc(.05REM - .25PT),
+		Transparent Calc(.05REM + .25PT)
+	) Bottom 1.5REM Center / .25REM .25REM, No-Repeat Radial-Gradient(
+		Circle At Center,
+		#FAF8F7 Calc(.05REM - .25PT),
+		Transparent Calc(.05REM + .25PT)
+	) Bottom 2.25REM Center / .25REM .25REM, No-Repeat Linear-Gradient(
+		To Right,
+		#B01C1C Calc(.075REM - .25PT),
+		#FAF8F7 Calc(.075REM + .25PT),
+		#FAF8F7 Calc(.175REM - .25PT),
+		#B01C1C Calc(.175REM + .25PT)
+	) Bottom 1.625REM Center / .25REM .75REM, No-Repeat Radial-Gradient(
+		Circle At Center,
+		#B01C1C Calc(.125REM - .25PT),
+		Transparent Calc(.125REM + .25PT)
+	) Bottom 1.5REM Center / .25REM .25REM, No-Repeat Radial-Gradient(
+		Circle At Center,
+		#B01C1C Calc(.125REM - .25PT),
+		#FAF8F7 Calc(.125REM + .25PT)
+	) Bottom 2.25REM Center / .25REM .25REM, No-Repeat Linear-Gradient(
+		To Top,
+		#FAF8F7,
+		#FAF8F7
+	) Bottom 2.25REM Center / .25REM 1REM, Content-Box #FAF8F7;
+}
+article>*:Not(section):Not(nav)>*:Not(h1):Not(h2) {
+	Display: Block;
+	Box-Sizing: Border-Box;
+	Margin: 0 Auto;
+	Border-Style: None Solid;
+	Border-Color: #B01C1C;
+	Border-Width: 1PX;
+	Padding: 0 Calc(2REM - 1PX);
+	Max-Width: 36REM;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+}
+article>*:Not(section):Not(nav) p::BEFORE,
+article>*:Not(section):Not(nav) p::AFTER,
+article>*:Not(section):Not(nav)>*:Not(h1):Not(h2)::BEFORE { Color: #B01C1CBF }
+article>*:Not(section):Not(nav)>*:Not(h1):Not(h2):First-Child,
+article>*:Not(section):Not(nav)>h1+*:Not(h1):Not(h2),
+article>*:Not(section):Not(nav)>h2+*:Not(h1):Not(h2) {
+	Padding-Top: Calc(1REM - 1PX);
+	Border-Top-Style: Solid;
+}
+article>*:Not(section):Not(nav)>*:Not(h1):Not(h2):Last-Child {
+	Padding-Bottom: Calc(1REM - 1PX);
+	Border-Bottom-Style: Solid;
+}
+article>*:Not(section):Not(nav)>p:Last-Child::AFTER { Content: "∎" }
+*:Root article>aside>*:Not(h1):Not(h2):First-Child,
+*:Root article>aside>h1+*:Not(h1):Not(h2),
+*:Root article>aside>h2+*:Not(h1):Not(h2) { Min-Height: 5.5REM }
+*:Root article>aside>*:Not(h1):Not(h2):First-Child:Last-Child,
+*:Root article>aside>h1+*:Not(h1):Not(h2):Last-Child,
+*:Root article>aside>h2+*:Not(h1):Not(h2):Last-Child { Min-Height: 6.5REM }
+*:Root article>aside>*:Not(h1):Not(h2):First-Child::BEFORE,
+*:Root article>aside>h1+*:Not(h1):Not(h2)::BEFORE,
+*:Root article>aside>h2+*:Not(h1):Not(h2)::BEFORE {
+	Display: Block;
+	Float: Left;
+	Margin: 0;
+	Padding: 0 2REM 0 0;
+	Font-Size: 4.5REM;
+	Font-Weight: Bold;
+	Line-Height: 1;
+	Z-Index: 1;
+	Content: "※";
+}
+
+/* MARGINAL NOTES */
+article ins {
+	Text-Decoration: None;
+	Counter-Increment: Note;
+}
+article ins::BEFORE {
+	Vertical-Align: Super;
+	Color: #B01C1C;
+	Font-Size: .8EM;
+	Font-Variant-Numeric: Tabular-Nums Lining-Nums;
+	Line-Height: 1;
+	Content: "\2060※\2060" Counter(Note);
+}
+article ins>* {
+	Display: Block;
+	Box-Sizing: Border-Box;
+	Margin: -1REM 0 2REM;
+	Border: 1PX #B01C1C Solid;
+	Padding: Calc(1REM - 1PX);
+	Width: Calc(75% - 2REM);
+	Color: #1F1A14;
+	Background: Fixed Linear-Gradient(
+		45DEG,
+		#FAF8F7 .35REM,
+		Transparent .35REM,
+		Transparent 1.06REM,
+		#FAF8F7 1.06REM
+	) Top Left / 1REM 1REM, Fixed Linear-Gradient(
+		-45DEG,
+		#FAF8F7 Calc(.5REM - .82PX),
+		#B01C1C1F Calc(.5REM - .6PX),
+		#B01C1C1F Calc(.5REM + .6PX),
+		#FAF8F7 Calc(.5REM + .82PX)
+	) Top Left / 1REM 1REM, #FAF8F7;
+	Font: Normal 1REM / 1.5 Serif;
+	Font-Variant-Numeric: Oldstyle-Nums;
+	Text-Justify: Inter-Character;
+}
+/* The following will not ensure that notes flip sides every time, but they should prevent any three successive notes from all appearing on the same side. */
+article p:Nth-Of-Type(Even) ins:Nth-Of-Type(Even)>*,
+article p:Nth-Of-Type(Odd) ins:Nth-Of-Type(Odd)>* {
+	Float: Left;
+	Clear: Left;
+	Margin-Left: -75%;
+}
+article p:Nth-Of-Type(Even) ins:Nth-Of-Type(Odd)>*,
+article p:Nth-Of-Type(Odd) ins:Nth-Of-Type(Even)>* {
+	Float: Right;
+	Clear: Right;
+	Margin-Right: -75%;
+}
+article ins>*::BEFORE {
+	Display: Inline-Block;
+	Padding: 0 1EM 0 0;
+	Color: #B01C1C;
+	Font-Weight: Bold;
+	Font-Variant-Numeric: Tabular-Nums Lining-Nums;
+	Content: "※" Counter(Note);
+}
+
+/* Toggleäble notes */
+*.ANNOTATED[tabindex] {
+	Cursor: Default;
+	Text-Decoration: #B01C1C Dotted Underline;
+}
+*.ANNOTATED[tabindex] span.ANNOTATION {
+	Display: None;
+	Position: Absolute;
+	Left: 0;
+	Right: 0;
+	Border-Style: Solid None;
+	Border-Color: #4B2DF7;
+	Border-Width: Thin;
+	Padding: 1REM;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Font: Normal 1REM / 1.5 Serif;
+	Font-Variant-Numeric: Lining-Nums;
+	Z-Index: 2;
+}
+*.ANNOTATED[tabindex]:Focus span.ANNOTATION,
+*.ANNOTATED[tabindex]:Hover span.ANNOTATION { Display: Block }
+*.ANNOTATED[tabindex]:Focus~*.ANNOTATED span.ANNOTATION
+*.ANNOTATED[tabindex]:Hover~*.ANNOTATED span.ANNOTATION { Z-Index: 1 }
+*.ANNOTATED[tabindex]:Focus~* *.ANNOTATED span.ANNOTATION
+*.ANNOTATED[tabindex]:Hover~* *.ANNOTATED span.ANNOTATION { Z-Index: 1 }
+
+/* GENERAL STYLING */
+*:Any-Link { Color: #4B2DF7 }
+html {
+	Color: #1F1A14;
+	Background: Fixed Linear-Gradient(
+		45DEG,
+		#DEDBD9 .35EM,
+		Transparent .35EM,
+		Transparent 1.06EM,
+		#DEDBD9 1.06EM
+	) Top Left / 1EM 1EM, Fixed Linear-Gradient(
+		-45DEG,
+		#DEDBD9 Calc(.5EM - .82PX),
+		#57534C Calc(.5EM - .6PX),
+		#57534C Calc(.5EM + .6PX),
+		#DEDBD9 Calc(.5EM + .82PX)
+	) Top Left / 1EM 1EM, #DEDBD9;
+	Font: Normal 1EM / 1.5 Serif;
+	Font-Variant-Numeric: Oldstyle-Nums;
+}
+body {
+	Margin: Auto;
+	Border: 2REM #FAF8F7 Solid;
+	Min-Width: 36REM;
+	Max-Width: 68REM;
+	Color: #1F1A14;
+	Background: Fixed Padding-Box Linear-Gradient(
+		45DEG,
+		#FAF8F7 .35REM,
+		Transparent .35REM,
+		Transparent 1.06REM,
+		#FAF8F7 1.06REM
+	) Top Left / 1REM 1REM, Fixed Padding-Box Linear-Gradient(
+		-45DEG,
+		#FAF8F7 Calc(.5REM - .82PX),
+		#4B2DF7 Calc(.5REM - .6PX),
+		#4B2DF7 Calc(.5REM + .6PX),
+		#FAF8F7 Calc(.5REM + .82PX)
+	) Top Left / 1REM 1REM;
+}
+h1 {
+	Margin: 0;
+	Border-Style: None None Solid;
+	Border-Color: Transparent;
+	Border-Width: 2REM;
+	Padding: 1REM;
+	Color: #1F1A14;
+	Background: Padding-Box #FAF8F7;
+	Font-Size: 3REM;
+	Font-Style: Italic;
+	Font-Variant-Caps: Small-Caps;
+	Text-Align: Center;
+	Line-Height: 1;
+}
+h2 {
+	Position: Relative;
+	Margin: 0 -2REM;
+	Padding: 0 0 2REM;
+	Color: #B01C1C;
+	Font-Size: 2REM;
+	Line-Height: 1;
+	Text-Align: Center;
+	Z-Index: 1;
+}
+h2::BEFORE { Content: "❧ " }
+h2::AFTER { Content: " ☙" }
+hr {
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Background: Transparent;
+	Height: 1.5REM;
+}
+p {
+	Position: Relative;
+	Text-Align: Justify;
+	Hyphens: Auto;
+}
+article p {
+	Margin: 0 -2REM;
+	Padding: 0 2REM;
+}
+p::BEFORE,
+p::AFTER {
+	Color: #57534CBF;
+	Text-Indent: 0;
+}
+p::AFTER {
+	Display: Inline-Block;
+	Vertical-Align: Sub;
+	Margin: 0 -2EM -1EM 0;
+	Padding: 0 0 0 1EM;
+	Min-Width: 1EM;
+	Height: 1EM;
+	Line-Height: 1;
+}
+p:Not(:Last-Child)::AFTER { Content: "//" }
+p+p { Text-Indent: 1EM }
+p+p::BEFORE {
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Right: Calc(100% - 2REM);
+	Padding: 0 .5EM 0 0;
+	Font-Style: Italic;
+	Font-Weight: Bold;
+	Text-Align: Right;
+	Content: "¶";
+}
+p>* { Text-Indent: 0 }
+b {
+	Color: #4B2DF7;
+	Font: Inherit;
+}
+b.NUMERIC {
+	Display: Inline-Block;
+	Box-Sizing: Border-Box;
+	Vertical-Align: .0625EM;
+	Margin: -.5EM 0 -.375EM;
+	Border: 2PX #4B2DF7 Solid;
+	Border-Radius: Calc(50% * 1.1294) 50%;
+	Padding: Calc(.5EM - 2PX) .125EM Calc(.375EM - 2PX);
+	Min-Width: 1.875EM;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Font-Size: .8EM;
+	Font-Style: Italic;
+	Font-Weight: Bold;
+	Font-Variant-Numeric: Tabular-Nums Lining-Nums;
+	Line-Height: 1;
+	Text-Align: Center;
+}
+b.SPACED.NUMERIC { Margin: -.5EM Calc(-.25EM - 2PX) -.375EM }
+em {
+	Margin: .05EM;
+	Font-Style: Inherit;
+	Letter-Spacing: .05EM;
+}
+em::BEFORE { Content: "· " }
+em::AFTER { Content: " ·" }
+u {
+	Font-Variant-Caps: Small-Caps;
+	Text-Decoration: None;
+}
+</style>
+
+<article>
+	<header>
+		<h1>Notebook Style</h1>
+		<small>Last updated : <time datetime="2019-04-21">21 April 2019</time></small>
+		<hr />
+		<p>This style is a modified version of that used for <a href="https://www.u2764.com/page04.xhtml">page 04 of my journal</a>. It is a somewhat minimalist design inspired by notebooks that I used to keep in high school, featuring black, red, and blue ink.</p>
+		<p>This style supports both marginal and toggleäble notes, and is an excellent design if those are things you need. On the other hand, its emphasis on marginal notes means that it is only responsive down to 40rem. If you are goïng to choose a style with enormous margins like this one, make sure that you make use of them.</p>
+	</header>
+	<section id="usage">
+		<h2>Usage</h2>
+		<p>To use this style, just fill an <code>&lt;article></code> with any number of <code>&lt;header></code>, <code>&lt;footer></code>, <code>&lt;section></code>, <code>&lt;nav></code>, and <code>&lt;aside></code> children. Each of these divisions should only have element children. Only <code>&lt;section></code>s may have marginal notes.
+		<p>Marginal notes are added using the <code>&lt;ins></code> element, whose child element should be the note itself. Code like the following is recommended : <code>&lt;ins >&lt;span role="note" >Note contents.&lt;/span >&lt;/ins ></code>. For optimal display, do not put needless whitespace inside of the note.<ins><span role="note">Marginal notes use an <code>&lt;ins></code> element because their intention is to provide supplementary information or commentary which is inserted <em>into</em> ( the margins of ) a document. Imagine marking up a document with a red pen.</span></ins>
+		<p>Toggleäble notes ( annotations ) can be added by specifying <em>both</em> the <code>ANNOTATED</code> class and a <code>tabindex</code> value ( <code>0</code> is recommended ) on an element ; you can use a <code>&lt;span class="ANNOTATION"></code> inside an <code>ANNOTATED</code> element to give the annotation.<ins><span role="note"><code>tabindex</code> is required because it allows the element to receive focus—necessary for devices and readers who canʼt rely on hovering to display the annotation.</span></ins> The result looks <b class="ANNOTATED" tabindex="0">like this<span class="ANNOTATION"> An annotation.</span></b>.
+		<p>Circled numbering is supported through <code>&lt;b class="NUMERIC"></code> : <b class="NUMERIC">1.</b><b class="NUMERIC">2.</b><b class="NUMERIC">3.</b><b class="NUMERIC">4.</b><b class="NUMERIC">5.</b><b class="NUMERIC">6.</b><b class="NUMERIC">7.</b><b class="NUMERIC">8.</b><b class="NUMERIC">9.</b><b class="NUMERIC">10.</b>. Add the <code>SPACED</code> class to give the numerals negative left and right margins, which might look more appealing if you have already padded the numerals with a fixed amount of whitespace in your source.
+		<p><code>&lt;nav></code> elements are displayed as a 3×n grid ; it is recommended that you place links inside of a <code>&lt;ul></code> or <code>&lt;ol></code> element.
+	</section>
+	<footer>
+		<p>🄯 2019 <u>Kyebego</u>. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.</p>
+	</footer>
+</article>
