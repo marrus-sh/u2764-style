@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Spec Style ( monster )</title>
+<meta charset="UTF-8" />
+
+<style>
+/* Page Layout */
+html {
+	Margin: 0;
+	Border: None;
+	Padding: 6.5EM 0 0;
+	Color: Black;
+	Background: White;
+	-moz-Tab-Size: 5;
+	Tab-Size: 5;
+}
+body {
+	Box-Sizing: Content-Box;
+	Margin: Auto;
+	Padding: 6.5EM 6EM 11EM;
+	Max-Width: 43EM;
+	Color: Black;
+	Background: White;
+}
+*[role=navigation] ul,
+nav ul { List-Style-Type: None }
+
+/* Headers */
+body>header:First-Of-Type {
+	Display: Flex;
+	Position: Absolute;
+	Align-Items: Center;
+	Top: 0;
+	Left: 0;
+	Right: 0;
+	Margin: 0;
+	Border-Style: None Solid;
+	Border-Color: Transparent;
+	Border-Width: 4EM;
+	Padding: 1.5EM Calc(50VW - 27.5REM);
+	Height: 6.5REM;
+	Color: White;
+	Background: DarkGreen;
+}
+body>header:First-Of-Type>* {
+	Display: Inline-Block;
+	Margin-Right: 1REM;
+}
+body>header:First-Of-Type>*:First-Child {
+	Font-Size: 2.5EM;
+	Line-Height: 1.4;
+}
+body>header:First-Of-Type>*+nav {
+	Display: Inline-Block;
+	Margin: 0 0 0 Auto;
+	Font-Size: Inherit;
+	Line-Height: Inherit;
+}
+body>header strong {
+	Font-Style: Italic;
+	Font-Weight: Inherit;
+}
+body>header *|*:Link,
+body>header *|*:Visited {
+	Color: Inherit;
+	Text-Decoration: None;
+}
+body>header *|*:Link:Hover,
+body>header *|*:Visited:Hover {
+	Color: Inherit;
+	Text-Decoration: Underline;
+}
+
+/* Blocky Things */
+aside {
+	Display: Flow-Root;
+	Padding: 0 2REM;
+	Color: SeaGreen;
+	Background: Honeydew;
+}
+blockquote,
+div[role=note],
+dl {
+	Display: Flow-Root;
+	Margin: 1REM -2REM 1REM Calc(-2REM - 5PX);
+	Border-Left: 5PX Solid;
+	Padding: 0 3REM;
+}
+blockquote:Target,
+div[role=note]:Target,
+dl:Target,
+pre:Target {
+	Border-Color: Goldenrod;
+	Color: MidnightBlue;
+	Background: Cornsilk;
+	Box-Shadow: 5PX 3PX Khaki;
+}
+blockquote {
+	Border-Color: DodgerBlue;
+	Color: MidnightBlue;
+	Background: AliceBlue;
+	Font-Style: Italic;
+}
+blockquote.PULL {
+	Margin-Top: 2REM;
+	Margin-Bottom: 2REM;
+	Font-Size: Larger;
+	Text-Align: Center;
+}
+blockquote blockquote {
+	Margin-Left: Calc(-2REM - 3PX);
+	Border-Left-Width: 3PX;
+}
+blockquote blockquote blockquote { Font-Size: Small }
+div[role="note"] {
+	Border-Color: MediumOrchid;
+	Color: Indigo;
+	Background: Thistle;
+}
+dl {
+	Border-Color: DarkGoldenrod;
+	Color: DarkSlateGray;
+	Background: LightGoldenrodYellow;
+}
+aside dl {
+	Display: Block;
+	Margin-Left: 0;
+	Margin-Right: 0;
+	Border: None;
+	Padding: 0;
+	Color: Inherit;
+	Background: Transparent;
+}
+pre {
+	Margin: 1EM -2EM 1EM Calc(-1EM - 5PX) ;
+	Border-Style: Solid;
+	Border-Color: MediumOrchid;
+	Border-Width: Thin Thin Thin 5PX;
+	Padding: .5EM 1EM;
+	Color: DarkSlateBlue;
+	Background: GhostWhite;
+	Font-Size: .84REM;
+	Line-Height: 1;
+	White-Space: Pre-Wrap;
+}
+
+/* Tables */
+table {
+	Margin-Left: Auto;
+	Margin-Right: Auto;
+	Border: Thin DarkSlateBlue Solid;
+	Border-Collapse: Collapse;
+}
+dd table,
+dt table,
+li table { Width: 100% }
+th {
+	Box-Sizing: Border-Box;
+	Border: Thin DarkSlateBlue Solid;
+	Padding: .25EM .125EM;
+	Min-Width: 4EM;
+	Font-Weight: Bold;
+}
+td {
+	Box-Sizing: Border-Box;
+	Border: Thin DarkSlateBlue Solid;
+	Padding: .25EM .125EM;
+	Min-Width: 4EM;
+}
+tfoot {
+	Color: DarkSlateBlue;
+	Background: MintCream;
+}
+thead {
+	Color: DarkGreen;
+	Background: GhostWhite;
+}
+
+/* Lists */
+ol,
+ul { Padding-Left: 2EM }
+
+/* Definition Lists */
+dt {
+	Margin: 1EM 0 0;
+	Font-Weight: Bold;
+}
+aside dt {
+	Display: Inline;
+	Margin: 0;
+	Color: DarkGreen;
+}
+aside dt:First-Child::BEFORE { Content: "☞ " }
+aside dd+dt::BEFORE { Content: "☞ " }
+aside dt+dt::BEFORE { Content: " , "}
+aside dt+dd::BEFORE { Content: " : " }
+dd,
+aside dd+dd {
+	Display: List-Item;
+	Margin: 0 0 0 2EM;
+	Padding: 0;
+}
+aside dd {
+	Display: Inline;
+	Margin: 0;
+}
+aside dd::AFTER {
+	Display: Block;
+	Margin: 0 0 1EM;
+	Content: "";
+}
+dd:Last-Child { Margin-Bottom: 1EM }
+aside dd:Last-Child { Margin: 0 }
+dd>*:First-Child { Margin-Top: 0 }
+dd>*:Last-Child { Margin-Bottom: 0 }
+dd>p { Margin: 0 }
+dd>p+p { Text-Indent: 2EM }
+dd>p+p>* { Text-Indent: 0 }
+
+/* Other Blocks*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { Color: Indigo }
+
+/* Text Styles */
+*|*:Link { Color: DarkSlateBlue }
+*|*:Link:Hover { Color: SlateBlue }
+*|*:Link:Active { Color: BlueViolet }
+*|*:Visited { Color: MediumSlateBlue }
+*|*:Visited:Hover { Color: MediumPurple }
+*|*:Visited:Active { Color: DarkOrchid }
+code {
+	Margin: -1PX;
+	Border: 1PX DarkSlateBlue Solid;
+	Padding: .12EM;
+	Color: DarkSlateBlue;
+	Background: GhostWhite;
+	Font-Size: .84REM;
+	Line-Height: 1;
+}
+*|*:Link code,
+*|*:Visited code { Color: Inherit }
+pre>code:Only-Child {
+	Margin: 0;
+	Border: None;
+	Padding: 0;
+	Font: Inherit;
+	Color: Inherit;
+	Background: Transparent;
+}
+del {
+	Color: SaddleBrown;
+	Text-Decoration: Line-Through;
+}
+dfn { Font-Weight: Bold }
+ins {
+	Color: RoyalBlue;
+	Text-Decoration: Underline;
+}
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong { Font-Style: Italic }
+var { Font-Weight: Bold }
+</style>
+
+<header>
+	<p>Style : <strong>\u2764</strong></p>
+	<nav>
+		<a href="../">Back</a>
+	</nav>
+</header>
+
+<h1>Spec Style <small>( <strong>monster</strong> version )</small></h1>
+<p>This is a style that I developed for use with certain internet specifications, like <a href="https://www.monstr.pub/" rel="noopener noreferrer">MonStrPub</a>. It is extremely basic and relies heavily on browser defaults.
+<p>There is a number of spec­‑related stylings supported :
+<div role="note">
+	<p>Use <code>&lt;div role="note"></code> for notes like this one.
+</div>
+<dl>
+	<dt>Another feature
+	<dd><p>You can use <code>&lt;dl></code>s for definition lists. These are very useful for defining properties !
+</dl>
+<aside>
+	<p>Use <code>&lt;aside></code> for asides like this. A <code>&lt;dl></code> inside of an aside can be used to point to issues :
+	<dl>
+		<dt>Issue #NN
+		<dd>This is a very important issue !
+	</dl>
+</aside>
+<blockquote>
+	<p><code>&lt;blockquote></code>s cite information from another source.
+	<blockquote>
+		<p>You can of course nest <code>&lt;blockquote></code>s.
+	</blockquote>
+</blockquote>
+<table>
+	<thead>
+		<tr><th>Conjunction<th>Statement
+	<tbody>
+		<tr><td>And<td>Of course tables are supported too !
+	<tfoot>
+		<tr><td>1 word<td>6 words
+</table>
+<pre>Preformat  text  to(o)
+	Your  h e a r tʼs  content !!</pre>
+<p>This paragraph includes content which has been <del>deleted</del><ins>added</ins>. Here is <var>a variable</var> and here is some <code>code</code>.
+<footer>
+	🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+</footer>
