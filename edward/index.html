@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Edward Style</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,intial-scale=1"/>
+
+<style>
+html {
+	Margin: 0;
+	Padding: 0;
+	Color: #FAF8F7;
+	Background: #1F1A14;
+	Font: Normal Medium / 1.5 Serif;
+	Font-Variant-Numeric: Oldstyle-Nums;
+	Word-Break: Keep-All;
+}
+body {
+	Margin: 4.5REM Auto;
+	Padding: 0 3REM;
+	Position: Relative;
+	Max-Width: 40REM;
+	Z-Index: 0;
+	Counter-Reset: H2 P AllP;
+}
+footer,
+header { Margin: 6REM 0 }
+footer p {
+	Font: Inherit;
+	Text-Align-Last: Center;
+}
+footer p+p {
+	Margin-Top: .75REM;
+	Text-Indent: 0;
+}
+header { Text-Align: Center }
+header hr {
+	Display: Block;
+	Margin: 1.5REM 0;
+	Border: None;
+	Padding: 0;
+	Height: 1.5REM;
+	Content: "";
+}
+header svg {
+	Display: Block;
+	Margin: 3REM Auto;
+	Width: 6REM;
+	Filter: Blur(.125PT); /* For a printed look */
+}
+header p {
+	Font-Style: Italic;
+	Text-Align: Center;
+}
+header nav {
+	Margin: .75REM 0;
+	Font-Variant-Caps: Small-Caps;
+}
+header nav cite {
+	Display: Block;
+	Font-Size: 2REM;
+	Font-Style: Inherit;
+	Line-Height: 3REM;
+	Letter-Spacing: .15EM;
+}
+blockquote {
+	Margin: 1.5REM 0;
+	Border-Left: 1PX #948D87 Dashed;
+	Padding: 0 0 0 Calc(1.5REM - 1PX);
+}
+blockquote article { Font: 300 1EM / 1.35 Sans-Serif }
+blockquote article p {
+	Text-Align: Left;
+	Hyphens: None;
+}
+blockquote article em,
+blockquote article i {
+	Font-Family: Inherit;
+	Font-Style: Italic;
+	Text-Decoration: None;
+}
+blockquote p {
+	Margin-Left: -1.5REM;
+	Padding-Left: 1.5REM;
+}
+dl {
+	Margin: 1.5REM 0;
+	Padding: 0 .5REM 0;
+	Font-Size: Calc(1.5REM / 1.35);
+	Line-Height: 1.35;
+}
+dl p {
+	Margin-Left: -.5REM;
+	Padding-Left: .5REM;
+}
+blockquote dl p {
+	Margin-Left: -2REM;
+	Padding-Left: 2REM;
+}
+dt {
+	Position: Relative;
+	Margin: -.175EM -1REM .175EM;
+	Padding: 0 1EM 0 1.5REM;
+	Max-Width: Max-Content;
+	Font-Weight: Bold;
+	Text-Shadow:
+		-1PX 1PX #1F1A14,
+		0 1PX #1F1A14,
+		1PX 1PX #1F1A14;
+}
+dt::AFTER {
+	Display: Block;
+	Position: Absolute;
+	Top: Calc(100% - 1.5REM / 1.35 * .175);
+	Right: 0;
+	Left: 0;
+	Padding-Bottom: 1PX;
+	Border-Bottom: Double;
+	Z-Index: -1;
+	Content: "";
+}
+dt p {
+	Margin-Left: -1REM;
+	Padding-Left: 1REM;
+	Text-Indent: -1.5REM
+}
+blockquote dt p {
+	Margin-Left: -2.5REM;
+	Padding-Left: 2.5REM;
+	Text-Indent: -1.5REM
+}
+dd { Margin: 0 0 1.5REM }
+h1 {
+	Position: Relative;
+	Margin: 0 Auto;
+	Padding: 0 Calc(3REM + 2CH);
+	Max-Width: 20REM;
+	Min-Width: Min-Content;
+	Color: #FAF8F7;
+	Background: #1F1A14;
+	Font-Size: 2REM;
+	Line-Height: 1.5EM;
+	Text-Transform: Uppercase;
+	Hyphens: Auto;
+}
+h1::BEFORE,
+h1::AFTER {
+	/* The heading ornaments. */
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Left: 0;
+	Bottom: 3REM;
+	Width: 3REM;
+	Background: No-Repeat URL(data:image/gif;base64,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) Center / Contain;
+	Filter: Invert(1);
+	Mix-Blend-Mode: Screen;
+	Content: "";
+}
+h1::AFTER {
+	Left: Auto;
+	Right: 0;
+	Transform: ScaleX(-1);
+}
+h1 small {
+	/* The subtitle. */
+	Display: Block;
+	Font-Size: .75EM;
+	Font-Style: Italic;
+	Text-Transform: None;
+}
+h1 small b {
+	/* The important part( s ) of the subtitle. */
+	Display: Block;
+	Font-Size: 2REM;
+	Font-Style: Normal;
+	Font-Weight: Normal;
+	Font-Variant-Caps: Small-Caps;
+	Letter-Spacing: .1EM;
+}
+header.SHORTTITLE { Display: None } /* Fallback */
+@supports ( Writing-Mode: Vertical-LR ) {
+	/*
+	Rendering the right marginal information depends on support for vertical left­‑to­‑right text.
+	*/
+	body::AFTER,
+	header.SHORTTITLE {
+		Display: Block;
+		Position: Fixed;
+		Writing-Mode: Vertical-LR;
+		Right: .5REM;
+		Bottom: .5REM;
+		Margin: 0;
+		Padding: 0 Calc(50% - 23REM) 0 0;
+		Width: 2REM;
+		Overflow: Hidden;
+		Color: #948D87;
+		Text-Align: Left;
+		Text-Orientation: Sideways;
+		Text-Overflow: Ellipsis;
+		Z-Index: 26;
+	}
+	header.SHORTTITLE {
+		Top: .5REM;
+		Font-Size: 2REM;
+		Font-Style: Italic;
+		Line-Height: 1;
+		White-Space: NoWrap;
+	}
+	header.SHORTTITLE:Focus-Within { Color: #B01C1C }
+	header.SHORTTITLE a[href] {
+		Display: Inline-Block;
+		Padding: .5REM 0;
+		Width: 2REM;
+		Max-Height: Calc(100% - 1REM);
+		Overflow: Hidden;
+		Vertical-Align: Top;
+		Color: #1F1A14;
+		Background: #948D87;
+		Text-Decoration: None;
+		Text-Overflow: Ellipsis;
+	}
+	header.SHORTTITLE a[href]:Focus {
+		Outline: None;
+		Background: #B01C1C;
+	}
+	header.SHORTTITLE::AFTER {
+		Display: Block;
+		Position: Absolute;
+		Box-Sizing: Border-Box;
+		Top: 0;
+		Bottom: 0;
+		Left: 0;
+		Border-Right: Solid;
+		Width: 2REM;
+		Z-Index: -1;
+		Content: "";
+	}
+}
+details {
+	Margin: 1.5REM 0;
+	Text-Align: Center;
+}
+summary {
+	Font-Weight: Bold;
+	Text-Decoration: Double Underline;
+}
+div.BODY {
+	/*
+	The container for the sticky headings.
+	*/
+	Margin: 3REM -3REM;
+	Padding: 3REM 3.5REM 3REM 3REM;
+}
+div.BODY::BEFORE {
+	/*
+	The sticky top border of the container.
+	*/
+	Display: Block;
+	Position: Sticky;
+	Top: -3REM;
+	Margin: 0 0 Calc(-3REM - 1PX) -2.5REM;
+	Border-Bottom: 1PX Solid;
+	Padding: 3REM 0 0;
+	Content: "";
+}
+div.BODY::AFTER {
+	/*
+	The sticky bottom border of the container.
+	*/
+	Display: Block;
+	Position: Sticky;
+	Bottom: -3REM;
+	Margin: 0 0 Calc(-3REM - 1PX) -2.5REM;
+	Border-Top: 1PX Solid;
+	Padding: 0 0 3REM;
+	Background: #1F1A14;
+	Z-Index: 25;
+	Content: "";
+}
+div.BODY section { Display: Contents } /* Required for proper stickiness handling */
+div.BODY section::BEFORE {
+	Display: Block;
+	Margin-Top: 4.5REM;
+	Content: "";
+}
+div.BODY section:First-Child::BEFORE {
+	/*
+	The sticky top border for the container, again, only this time on top of the first heading, to cover it when the heading is scrolled up past the top of the page (as the end of the entire BODY is beïng scrolled past).
+	*/
+	Position: Sticky;
+	Top: 0;
+	Margin: 0 0 -1PX -2.5REM;
+	Border-Top: 1PX Solid;
+	Z-Index: 25;
+	Content: "";
+}
+div.BODY section:Last-Child::AFTER {
+	Display: Block;
+	Margin-Bottom: 4.5REM;
+	Content: "";
+}
+h2 {
+	Position: Sticky;
+	Box-Sizing: Border-Box;
+	Margin: 0 -.5REM Calc(3REM - 1PX) -2.5REM;
+	Border: 1PX Solid;
+	Padding: Calc(.75REM - 1PX) 0 .75REM;
+	Height: Calc(3REM + 1PX);
+	Overflow: Hidden;
+	Color: #FAF8F7;
+	Background: #1F1A14;
+	Font-Size: 1.5REM;
+	Font-Style: Italic;
+	Font-Weight: Normal;
+	Font-Variant-Caps: Small-Caps;
+	Line-Height: 1;
+	White-Space: NoWrap;
+	Text-Overflow: Ellipsis;
+	Counter-Reset: P;
+	Counter-Increment: H2;
+}
+@supports Not ( Position: Sticky ) {
+	/*
+	We still need the relative positioning even if sticky isnʼt supported.
+	*/
+	h2 {
+		Position: Relative;
+		Top: 0 ! IMPORTANT;
+		Bottom: 0 ! IMPORTANT;
+		Left: 0 ! IMPORTANT;
+		Right: 0 ! IMPORTANT;
+	}
+}
+h2:Focus-Within { Background: #B01C1C }
+h2::BEFORE {
+	/*
+	Section numbering.
+	*/
+	Display: Inline-Block;
+	Margin: -.75REM .5EM -.75REM 0;
+	Padding: .75REM .5EM;
+	Box-Shadow: Inset 1PX -1PX CurrentColor;
+	Width: Calc(3.85REM - 1EM - 1PX);
+	Height: 1.5REM;
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Font-Style: Normal;
+	Font-Weight: Bold;
+	Text-Align: Right;
+	Content: Counter(H2, Upper-Alpha) " :";
+}
+h2:Focus-Within::BEFORE { Color: #B01C1C }
+h2.ALT::BEFORE { Margin-Right: 1.85EM } /* Indented h2ʼs */
+h2 a[href] {
+	/*
+	Section links, which cover the h2 and whose content is only visible to screenreaders.
+	*/
+	Display: Block;
+	Position: Absolute;
+	Top: 0;
+	Left: 0;
+	Margin: -1PX;
+	Border: 1PX Solid;
+	Padding: Calc(3REM - 1PX) 0 0;
+	Width: 100%;
+	Height: 1PX;
+	Color: Transparent;
+	Overflow: Hidden;
+	Z-Index: 1;
+}
+div.BODY>section:First-Child>h2 { Margin-Top: 0 }
+div.ANCHOR {
+	Position: Relative;
+	Z-Index: -1;
+}
+@media ( Min-Height: 39EM ) {
+	/*
+	On tall browsers, headings stick to the top and bottom of the BODY for easy navigation (and so that the entire poem is made visible). This expects the number of headings to be no greater than 5.
+	*/
+	div.BODY::BEFORE,
+	div.BODY::AFTER { Margin-Right: -2.5REM }
+	div.BODY::BEFORE { Bottom: 12REM }
+	div.BODY>section:Nth-Of-Type(1)>h2 {
+		Top: 0;
+		Z-Index: 16;
+	}
+	div.BODY>section:Nth-Of-Type(2)>div.ANCHOR {
+		Margin-Top: -3REM;
+		Padding-Top: 3REM;
+	}
+	div.BODY>section:Nth-Of-Type(2)>h2 {
+		Top: 3REM;
+		Z-Index: 15;
+	}
+	div.BODY>section:Nth-Of-Type(3)>div.ANCHOR {
+		Margin-Top: -6REM;
+		Padding-Top: 6REM;
+	}
+	div.BODY>section:Nth-Of-Type(3)>h2 {
+		Top: 6REM;
+		Z-Index: 14;
+	}
+	div.BODY>section:Nth-Of-Type(4)>div.ANCHOR {
+		Margin-Top: -9REM;
+		Padding-Top: 9REM;
+	}
+	div.BODY>section:Nth-Of-Type(4)>h2 {
+		Top: 9REM;
+		Z-Index: 13;
+	}
+	div.BODY>section:Nth-Of-Type(5)>div.ANCHOR {
+		Margin-Top: -12REM;
+		Padding-Top: 12REM;
+	}
+	div.BODY>section:Nth-Of-Type(5)>h2 {
+		Top: 12REM;
+		Z-Index: 12;
+	}
+	div.BODY>section:Nth-Last-Of-Type(1)>h2 { Bottom: 0 }
+	div.BODY>section:Nth-Last-Of-Type(2)>h2 { Bottom: 3REM }
+	div.BODY>section:Nth-Last-Of-Type(3)>h2 { Bottom: 6REM }
+	div.BODY>section:Nth-Last-Of-Type(4)>h2 { Bottom: 9REM }
+	div.BODY>section:Nth-Last-Of-Type(5)>h2 { Bottom: 12REM }
+}
+ol,
+ul {
+	Margin: .75REM 0;
+	Padding: 0 0 0 3EM;
+}
+li ol,
+li ul { Margin: 0 }
+p {
+	Position: Relative;
+	Margin: 0;
+	Font-Size: Calc(1.5REM / 1.35);
+	Line-Height: 1.35;
+	Text-Align: Justify;
+	Hyphens: Auto;
+}
+h2~p::BEFORE,
+h2~* p::BEFORE {
+	/*
+	Paragraphs which follow a section heading are numbered according to the heading number.
+	*/
+	Position: Absolute;
+	Left: -2.5REM;
+	Width: 2REM;
+	Height: 1.5REM;
+	Color: #DEDBD9;
+	Font: Normal .75REM / 2 Serif;
+	Font-Variant-Numeric: Tabular-Nums;
+	Text-Align: Right;
+	Text-Indent: 0;
+	Counter-Increment: P AllP;
+	Content: Counter(H2, Upper-Alpha) "¶" Counter(P, Decimal-Leading-Zero);
+}
+p:Focus-Within::BEFORE {
+	Color: Inherit;
+	Text-Decoration: #B01C1C Underline;
+}
+p+p { Text-Indent: 1.35EM }
+p>* { Text-Indent: 0 }
+*:Link,
+*:Visited {
+	Color: #B8B3B0;
+	Text-Decoration: Dashed Underline;
+}
+*:Link:Hover,
+*:Visited:Hover { Color: #DEDBD9 }
+*:Link:Active,
+*:Visited:Active { Color: #FAF8F7 }
+b { Font-Weight: Bolder }
+em {
+	Font-Family: Cursive;
+	Font-Style: Normal;
+	Line-Height: 1;
+	Text-Decoration: Underline;
+}
+i {
+	Font-Family: Cursive;
+	Font-Style: Italic;
+	Line-Height: 1;
+}
+strong { Text-Decoration: Double Underline }
+</style>
+
+<article>
+	<header>
+		<h1>Edward Style, <small>Last updated : <b><time datetime="2019-08-27">27 August 2019</time>.</b></small></h1>
+	</header>
+	<header class="SHORTTITLE"><a href="#">Edward</a></header>
+	<p>This style is a ( somewhat simplified ) version of that used for <a href="https://www.u2764.com/page07.xhtml">Page 07</a> of my journal. It is inspired by Edwardian printing presses, Gothic pulp novels, and vampires. The decorations on the <code>&lt;h1></code> element were taken from <a href="https://www.gutenberg.org/ebooks/59261" rel="noopener noreferrer"><cite>A Short History of Birds & Beasts, for the Amusement and Instruction of Children</cite></a>, in the public domain.
+
+	<div class="BODY">
+		<section id="usage">
+			<div id="usage.anchor" class="ANCHOR"></div>
+			<h2>Usage <a href="#usage.anchor">[ Permalink for Usage section ]</a></h2>
+			<p>The entire document should be wrapped in an <code>&lt;article></code>, ideally with a <code>&lt;header></code>. A second <code>&lt;header></code> with <code>class="SHORTTITLE"</code> can be used to display a vertical title in the top­‑right of the page on supporting browsers ; this title <em>must</em> be a link. It is recommended you use <code>&lt;a href="#"></code>, so that it links to the top of the page.
+			<p>Main document contents should be in <code>&lt;section></code>s inside of a <code>&lt;div class="BODY"></code>. In browsers which support them, these sections will be given “ sticky ” headings if the window is tall enough. At most five sections are supported, for reasons of space and stylesheet simplicity.
+			<p>There is a particular way of marking up section headings to get them to turn into links ; see the source of this page for a demonstration.
+			<p>It is known that the section numbering is sometimes incorrect in Safari ; this presumably has to do with the way Webkit optimizes large pages and fails to update its counters as they are processed.
+		</section>
+	</div>
+
+	<footer>
+		🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+	</footer>
+</article>
