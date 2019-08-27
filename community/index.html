@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Community Style</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,intial-scale=1"/>
+
+<style>
+/*
+This is yet another manifesto style. Iʼve done my best to keep the styling minimal to emphasize a community, low­‑class æsthetic. It doesnʼt take much, yʼall.
+*/
+html {
+	Overflow: Auto;
+	Color: #FAF8F7;
+	Background: #B01C1C;
+	Font: Bold Large / 1.5 Serif;
+}
+html *::SELECTION {
+	Color: #1F1A14;
+	Background: #FAE13E;
+	Outline: Thin #1F1A14 Solid;
+}
+body {
+	Margin: 0;
+	Padding: 0;
+	Overflow-X: Hidden;
+}
+article {
+	Display: Flex-Root;
+	Box-Sizing: Border-Box;
+	Margin: 5EM Auto;
+	Border: Thick #1F1A14 Outset;
+	Padding: 1EM;
+	Max-Width: 51EM;
+	Color: #B01C1C;
+	Background: #FAF8F7;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	Margin: 0 -1.5EM;
+	Border: 3PX #B01C1C Outset;
+	Padding: Calc(1EM - 3PX) Calc(1.5EM - 3PX);
+	Color: #1F1A14;
+	Background: #FAF8F7;
+	Box-Shadow: Inset 0 0 0 3PX #1F1A14, 3PX 3PX #FAE13EBF;
+	Letter-Spacing: Calc(1EM / 18);
+	Text-Transform: Uppercase;
+	Text-Shadow: -1PX 1PX #FAE13E, 1PX -1PX #B01C1C;
+}
+h1 {
+	Margin: -1.5EM -1.5EM 0;
+	Border-Style: Inset;
+	Border-Width: 5PX;
+	Padding: Calc(1.5EM - 5PX);
+	Box-Shadow: Inset 0 0 0 4PX #FAE13E, Inset 0 0 0 9PX #1F1A14;
+}
+em {
+	Font-Style: Inherit;
+	Font-Variant-Caps: Small-Caps;
+}
+*:Any-Link {
+	Margin: -.5EX 0;
+	Padding: .5EX 0;
+	Outline: Thin Transparent Solid;
+	Color: #1F1A14;
+	Transition: Background-Color Calc(1S / 6), Outline-Color Calc(1S / 6);
+}
+*:Any-Link:Focus,
+*:Any-Link:Hover { Outline-Color: CurrentColor }
+*:Any-Link:Focus { Text-Decoration: Double Underline }
+*:Any-Link:Hover { Background: #FAE13EBF }
+body *::MARKER { Color: #1F1A14 }
+</style>
+
+<article>
+	<header>
+		<h1>Community Style</h1>
+		<p><small>Last updated : <time datetime="2019-08-27">27 August 2019</time></small></p>
+	</header>
+
+	<p>This style was used for <a href="https://www.u2764.com/page05.xhtml">Page 05</a> of my journal. It is inspired by old Mozilla æsthetic and that of other community­‑oriented orgs.
+	<p>The styles on this page are very minimal, and rely heavily on browser defaults. So long as you wrap page content in an <code>&lt;article></code>, you should be fine.
+
+	<footer>
+		🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+	</footer>
+</article>

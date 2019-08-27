@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>RED Style</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,intial-scale=1"/>
+
+<style>
+html {
+	Color: #FAF8F7;
+	Background: #B01C1C;
+	Font: 500 Medium "Helvetica Neue", Helvetica, Sans-Serif;
+	Hyphens: Auto;
+	/* The following `hyphenate-*` properties are speculative; CSS Text 4 */
+	Hyphenate-Limit-Chars: Auto 3 4;
+	Hyphenate-Limit-Lines: 2;
+	Hyphenate-Limit-Zone: 3%;
+	Text-Align: Justify;
+	Text-Align-Last: Center;
+	Quotes: "« " " »";
+}
+body {
+	Margin: 8PX Auto;
+	Padding: 0 8PX;
+	Max-Width: 31EM;
+}
+article { Counter-Reset: Section }
+footer,
+header,
+section { Margin: 3EM 0 }
+footer { Font-Weight: 400 }
+section {
+	Border-Top: 1PX Solid;
+	Padding: 1.5EM 0;
+	Counter-Increment: Section;
+}
+blockquote {
+	Font-Size: Larger;
+	Font-Style: Italic;
+	Font-Weight: 400;
+	Text-Align: Start;
+	Text-Align-Last: Auto;
+	Text-Shadow:
+		1PX 1PX #B01C1C,
+		1PX 2PX 1PX #D15919,
+		2PX 2PX #D15919;
+}
+blockquote footer {
+	Margin: 0;
+	Font-Size: Smaller;
+	Font-Style: Normal;
+	Font-Weight: 100;
+	Text-Align: End;
+	Text-Shadow: None;
+}
+h1 {
+	Margin-Left: Auto;
+	Margin-Right: Auto;
+	Max-Width: Max-Content;
+	Font-Size: XX-Large;
+	Font-Weight: 400;
+	Text-Align: Start;
+	Text-Align-Last: Start;
+}
+h1 b { Color: #1F1A14 }
+h2 {
+	Font-Weight: 700;
+	Font-Variant-Caps: Titling-Caps;
+	Letter-Spacing: Calc(1EM / 12);
+	Text-Transform: Uppercase;
+}
+h2::BEFORE {
+	Display: Inline-Block;
+	Margin: 0 1EM 0 Calc(-3CH - 1EM);
+	Width: 3CH;
+	Color: #1F1A14;
+	Text-Align: End;
+	Text-Align-Last: End;
+	Text-Shadow:
+		1PX 1PX #B01C1C,
+		1PX 2PX 1PX #1F1A14,
+		2PX 2PX CurrentColor;
+	Content: Counter(Section, Decimal-Leading-Zero) ".";
+}
+b {
+	Font: Inherit;
+	Text-Shadow:
+		1PX 1PX #B01C1C,
+		1PX 2PX 1PX #1F1A14,
+		2PX 2PX #1F1A14;
+}
+em em { Text-Decoration: Double Underline }
+mark {
+	Color: Inherit;
+	Background: Transparent;
+	Font-Weight: 400;
+	Text-Shadow:
+		1PX 1PX #B01C1C,
+		1PX 2PX 1PX #1F1A14,
+		2PX 2PX #1F1A14;
+}
+q {
+	Font-Weight: 300;
+	Letter-Spacing: Calc(1EM / 24);
+	Text-Shadow:
+		1PX 1PX #B01C1C,
+		1PX 2PX 1PX #D15919,
+		2PX 2PX #D15919;
+}
+strong {
+	Font: Inherit;
+	Text-Shadow:
+		1PX 1PX #B01C1C,
+		1PX 2PX 1PX #F56E97,
+		2PX 2PX #F56E97;
+}
+sub,
+sup {
+	Font-Size: 1EX;
+	Font-Variant-Caps: Titling-Caps;
+	Line-Height: 1;
+	Text-Transform: Uppercase;
+}
+*::SELECTION {
+	Color: #FAF8F7;
+	Background: #1F1A14;
+}
+*:Link,
+*:Visited {
+	Color: #FAE13E;
+	Text-Decoration: Underline;
+}
+*:Link>*:Only-Child,
+*:Visited>*:Only-Child { Color: Inherit }
+*:Link:Hover,
+*:Visited:Hover {
+	Text-Shadow:
+		1PX 1PX #D15919,
+		1PX 2PX 1PX #4B2DF7,
+		2PX 2PX #1F1A14;
+}
+nav *:Link,
+nav *:Visited { Text-Decoration: Overline Underline }
+nav *:Link:Hover,
+nav *:Visited:Hover {
+	Color: #1F1A14;
+	Background: #FAE13E;
+	Text-Shadow: None;
+}
+*:Link::SELECTION,
+*:Visited::SELECTION,
+*:Link>*:Only-Child::SELECTION,
+*:Visited>*:Only-Child::SELECTION { Color: Inherit }
+</style>
+
+<article>
+	<header>
+		<h1><b>RED</b> Style</h1>
+		<p><small>Last updated : <time datetime="2019-08-27">27 August 2019</time></small></p>
+	</header>
+
+	<p>This style was used for <a href="https://www.u2764.com/page06.xhtml">Page 06</a> of my journal. It is inspired <strong>the colour red</strong> and <strong>twentieth­‑century revolutionary queer activism</strong>.
+	<p>The document contents should be wrapped in an <code>&lt;article></code>. Principal page divisions should be marked using <code>&lt;section></code>. Otherwise, the markup is straightforward, with no special requirements.
+
+	<footer>
+		🄯 2019 Kyebego. <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license nofollow noopener noreferrer">CC BY-SA</a>. <a href="../">Back to styles list</a>.
+	</footer>
+</article>
